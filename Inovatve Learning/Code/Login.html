@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovative Learning - Auth</title>
+    <link rel="stylesheet" href="Design.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <img src="../Pictures/Logo/Logo.png" alt="Logo" class="main-logo">
+                <div class="brand-text">
+                    <span class="company-name">Innovative Learning</span>
+                    <span class="tagline">Learn • Practice • Grow</span>
+                </div>
+            </div>
+            <div class="user-actions">
+                <a href="Home.html" class="btn-back">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="login-container">
+        <div class="login-card">
+            <div class="auth-toggle">
+                <button id="loginToggle" class="toggle-btn active" onclick="showAuth('login')">
+                    <i class="fa-solid fa-right-to-bracket"></i> Sign In
+                </button>
+                <button id="registerToggle" class="toggle-btn" onclick="showAuth('register')">
+                    <i class="fa-solid fa-user-plus"></i> Create Account
+                </button>
+            </div>
+
+            <div id="loginSection">
+                <div class="card-header">
+                    <span class="sparkle-icon">✦</span>
+                    <h2 class="welcome-text">Welcome</h2>
+                    <span class="sparkle-icon">✦</span>
+                </div>
+                <p class="login-subtitle">Continue your learning journey</p>
+
+                <form class="auth-form">
+                    <div class="input-group">
+                        <label>Username</label>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-envelope"></i>
+                            <input type="text" placeholder="Enter your Username">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" class="password-input" placeholder="Enter your password">
+                            <i class="fa-regular fa-eye toggle-password"></i>
+                        </div>
+                        <a href="#" class="forgot-link">Forgot password?</a>
+                    </div>
+                    <button type="button" class="btn-submit-main" onclick="handleLogin()">Sign In to Learning</button>
+                </form>
+            </div>
+
+            <div id="registerSection" style="display: none;">
+                <div class="card-header">
+                    <span class="sparkle-icon">✦</span>
+                    <h2 class="welcome-text">Create Your Account</h2>
+                    <span class="sparkle-icon">✦</span>
+                </div>
+                <p class="login-subtitle">Start your learning journey today</p>
+
+                <form class="auth-form">
+
+                    <div class="name-row">
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" placeholder="First Name">
+                        </div>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" placeholder="Last Name">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" placeholder="Username">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" class="password-input" placeholder="Create password">
+                            <i class="fa-regular fa-eye toggle-password"></i>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" class="password-input" placeholder="Re-enter your password">
+                            <i class="fa-regular fa-eye toggle-password"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="terms-container">
+                        <input type="checkbox" id="terms">
+                        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+
+                    <button type="submit" class="btn-submit-main">Create Account ></button>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="Security.js"></script>
+    <script>
+        function showAuth(type) {
+            const loginSec = document.getElementById('loginSection');
+            const regSec = document.getElementById('registerSection');
+            const loginBtn = document.getElementById('loginToggle');
+            const regBtn = document.getElementById('registerToggle');
+
+            if (type === 'login') {
+                loginSec.style.display = 'block';
+                regSec.style.display = 'none';
+                loginBtn.classList.add('active');
+                regBtn.classList.remove('active');
+            } else {
+                loginSec.style.display = 'none';
+                regSec.style.display = 'block';
+                loginBtn.classList.remove('active');
+                regBtn.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

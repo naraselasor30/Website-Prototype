@@ -1,0 +1,548 @@
+/* =========================================
+   1. GLOBAL RESET & BASE STYLES
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* Palitan ang 'your-image-path.png' ng tamang file name at folder ng background mo */
+    background-image: url('../Pictures/Background/Background.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Mananatili ang background kahit mag-scroll ka */
+    color: #2D463E;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================
+   2. NAVIGATION BAR
+   ========================================= */
+.navbar {
+    padding: 20px 60px;
+    position: relative; /* Anchor para sa absolute positioning ng nav */
+    min-height: 100px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Brand & Logo */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.main-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-name {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.tagline {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Central Navigation (The Pill) */
+.central-nav {
+    display: flex;
+    gap: 10px;
+    background: #fff;
+    padding: 8px 15px;
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+    /* Heto ang dagdag para bumaba at mag-gitna */
+    margin-top: 100px; /* Adjust mo 'to kung gusto mo pang mas mababa */
+    position: absolute; /* Ginagamit natin 'to para lumaya sa space-between */
+    left: 50%;
+    transform: translateX(-50%);
+}
+.nav-item {
+    text-decoration: none;
+    color: #444;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    transition: 0.3s ease;
+}
+
+/* Page Highlighting Logic */
+.home-page .home-link,
+.learn-page .learn-link,
+.quiz-page .quiz-link {
+    background: #2D463E;
+    color: white;
+    border-radius: 25px;
+}
+
+/* User Actions (Right Side Container) */
+.user-actions {
+    display: flex;
+    align-items: center; /* Pantay-pantay ang taas ng lahat */
+    gap: 25px; /* Space sa pagitan ng links at ng button */
+}
+
+/* Container para sa Subscription, Help, at Language */
+.secondary-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Styling para sa bawat link (Subscription, Help, Language) */
+.action-item {
+    text-decoration: none;
+    color: #666; /* Malinis na gray */
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+/* Icons styling - Dark Green gaya ng logo */
+.action-item i {
+    font-size: 1rem;
+    color: #2D463E;
+}
+
+/* Gold Crown para sa Subscription */
+.action-item i.fa-crown {
+    color: #b58d59 !important;
+}
+
+/* Hover effect */
+.action-item:hover {
+    color: #2D463E;
+    transform: translateY(-1px); /* Bahagyang aangat */
+}
+
+/* Ang mismong Sign In Button */
+.btn-signin {
+    background: #2D463E; /* Dark green base */
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px; /* Rounded corners */
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(45, 70, 62, 0.2);
+}
+
+.btn-signin:hover {
+    background: #1a2e28;
+    transform: scale(1.05); /* Lalaki nang kaunti */
+    box-shadow: 0 6px 15px rgba(45, 70, 62, 0.3);
+}
+
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
+.hero-section {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.welcome-badge {
+    color: #b58d59;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Hero Buttons */
+.btn-start {
+    background: #2D463E;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-quiz-outline {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 15px 35px;
+    border-radius: 30px;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-start:hover, 
+.btn-quiz-outline:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   4. FEATURE CARDS
+   ========================================= */
+.info-cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 80px;
+}
+
+.info-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 320px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-shrink: 0; /* Para hindi mapipi ang icon */
+}
+
+.icon-circle.dark   { background: #2D463E; }
+.icon-circle.orange { background: #e67e22; }
+.icon-circle.green  { background: #27ae60; }
+
+.card-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.card-content p {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* Modal (Pop-up) Background */
+.modal {
+    display: none; /* Nakatago muna */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Blur background */
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.sub-option {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sub-option:hover { 
+    background: #f0f7f2;
+    border-color: #2D463E;
+}
+
+/* Login Page Specific Background */
+.login-page {
+    /* ILAGAY DITO ANG PATH NG BACKGROUND IMAGE MO */
+    background-image: url('../Pictures/Background/Background.png'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Container & Card */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    min-height: calc(100vh - 100px);
+}
+
+.login-card {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Card Typography */
+.card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.welcome-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #2D463E;
+}
+
+.sparkle-icon {
+    color: #b58d59;
+    font-size: 1.2rem;
+}
+
+.login-subtitle {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+/* Auth Toggle Switch */
+.auth-toggle {
+    display: flex;
+    background: #f0f0f0;
+    padding: 5px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.toggle-btn.active {
+    background: white;
+    color: #2D463E;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Form Styling */
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #2D463E;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i:not(.toggle-password) {
+    position: absolute;
+    left: 15px;
+    color: #888;
+    z-index: 5;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 40px 12px 45px; /* 45px sa kaliwa (icon), 40px sa kanan (mata) */
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background: #f9f9f9;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-wrapper input:focus {
+    border-color: #2D463E;
+    background: #fff;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px; /* Ito ang nagtutulak sa kanya sa dulo */
+    left: auto !important; /* Pinapatay nito ang 'left: 15px' na galing sa general 'i' tag */
+    cursor: pointer;
+    color: #888;
+    z-index: 10;
+}
+
+/* Links & Buttons */
+.forgot-link {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    color: #218c74;
+    text-decoration: none;
+    margin-top: 8px;
+}
+
+.btn-login-submit {
+    width: 100%;
+    padding: 15px;
+    background: #2D463E;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn-login-submit:hover {
+    background: #1a2e28;
+}
+
+.btn-back {
+    text-decoration: none;
+    border: 1px solid #2D463E;
+    padding: 8px 20px;
+    border-radius: 50px;
+    color: #2D463E;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-back:hover {
+    background: #2D463E;
+    color: white;
+}
+
+.card-footer {
+    margin-top: 25px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.create-link {
+    color: #218c74;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.name-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.name-row .input-wrapper {
+    flex: 1;
+}
+
+.terms-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+    font-size: 0.8rem;
+    color: #666;
+    text-align: left;
+}
+
+.btn-submit-main {
+    width: 100%;
+    padding: 15px;
+    background: #2D463E;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit-main:hover {
+    background: #1a2e28;
+}
+
+.profile-active {
+    background-color: #2D463E !important; /* Dark green gaya ng design mo */
+    color: #ffffff !important;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

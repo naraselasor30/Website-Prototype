@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovative Learning - Home</title>
+    <link rel="stylesheet" href="Design.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="home-page">
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <img src="../Pictures/Logo/Logo.png" alt="Logo" class="main-logo">
+                <div class="brand-text">
+                    <span class="company-name">Innovative Learning</span>
+                    <span class="tagline">Learn • Practice • Grow</span>
+                </div>
+            </div>
+            
+            <nav class="central-nav">
+                <a href="Home.html" class="nav-item home-link">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+                <a href="Learn.html" class="nav-item learn-link">
+                    <i class="fa-solid fa-book-open"></i> Learn
+                </a>
+                <a href="Quiz.html" class="nav-item quiz-link">
+                    <i class="fa-solid fa-pen-nib"></i> Quiz
+                </a>
+            </nav>
+
+            <div class="user-actions">
+                <div class="secondary-actions">
+                    <a href="javascript:void(0)" class="action-item" onclick="openModal('subModal')">
+                        <i class="fa-solid fa-crown"></i> Subscription
+                    </a>
+                    
+                    <a href="#" class="action-item">
+                        <i class="fa-regular fa-circle-question"></i> Help
+                    </a>
+
+                    <a href="javascript:void(0)" class="action-item" onclick="openModal('langModal')">
+                        <i class="fa-solid fa-globe"></i> <span id="currentLang">English</span>
+                    </a>
+                </div>
+
+                <a href="Login.html" id="authLink" class="auth-wrapper">
+                    <button class="btn-signin" id="authButton">
+                        <i class="fa-solid fa-user"></i> Sign In
+                    </button>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <div id="subModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('subModal')">&times;</span>
+            <h3>Available Subscriptions</h3>
+            <div class="sub-option"><h4>Student Plan</h4><p>₱149/month</p></div>
+            <div class="sub-option" style="border: 2px solid #b58d59;"><h4>Pro Plan</h4><p>₱249/month</p></div>
+        </div>
+    </div>
+
+    <div id="langModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('langModal')">&times;</span>
+            <h3>Select Language</h3>
+            <div class="sub-option" onclick="changeLang('English')">English</div>
+            <div class="sub-option" onclick="changeLang('Tagalog')">Tagalog</div>
+        </div>
+    </div>
+
+    <main class="hero-section">
+        <div class="welcome-badge">✦ Welcome to Innovative Learning</div>
+        <h1 class="hero-title">Learn Something New <br> Every Day ✦</h1>
+        <p class="hero-subtitle">Simple, interactive lessons designed for beginners.<br>Build confidence step by step.</p>
+        
+        <div class="cta-group">
+            <button class="btn-start">Start Learning &nbsp; &gt;</button>
+            <button class="btn-quiz-outline"><i class="fa-solid fa-pen"></i> Try a Quiz</button>
+        </div>
+
+        <section class="info-cards">
+            <div class="info-card">
+                <div class="icon-circle dark"><i class="fa-solid fa-book-open"></i></div>
+                <div class="card-content">
+                    <h4>Easy to Follow</h4>
+                    <p>Beginner-friendly lessons</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="icon-circle orange"><i class="fa-solid fa-trophy"></i></div>
+                <div class="card-content">
+                    <h4>Practice & Quiz</h4>
+                    <p>Test your knowledge</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="icon-circle green"><i class="fa-solid fa-chart-simple"></i></div>
+                <div class="card-content">
+                    <h4>Track Progress</h4>
+                    <p>See how you grow</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="Security.js"></script>
+</body>
+</html>
