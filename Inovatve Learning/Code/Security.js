@@ -69,3 +69,247 @@ function checkAuthStatus() {
 
 // Patakbuhin tuwing mag-load ang page
 window.onload = checkAuthStatus;
+
+
+function loadProfile() {
+    const username = localStorage.getItem('username');
+
+    if (username) {
+        document.getElementById('usernameDisplay').innerText = "Hi, " + username + "!";
+    }
+}
+
+
+// ================= LESSON SYSTEM (JSON-BASED) =================
+
+// Storage for all courses
+let courseData = {};
+let currentTopic = "";
+let currentLessonIndex = 0;
+
+// Load ALL JSON files
+Promise.all([
+    fetch('HTMLCourse.json').then(res => res.json()),
+    fetch('CSSCourse.json').then(res => res.json()),
+    fetch('JSCourse.json').then(res => res.json())
+])
+.then(([htmlData, cssData, jsData]) => {
+    courseData = {
+        ...htmlData,
+        ...cssData,
+        ...jsData
+    };
+})
+.catch(err => {
+    console.error("Error loading course data:", err);
+});
+
+// Start lesson
+function startLesson(topic) {
+    currentTopic = topic;
+    currentLessonIndex = 0;
+
+    showLesson();
+
+    localStorage.setItem('currentTopic', topic);
+    localStorage.setItem('lessonIndex', currentLessonIndex);
+}
+
+// Show lesson
+function showLesson() {
+    if (!courseData[currentTopic]) {
+        alert("Lesson not loaded yet. Please try again.");
+        return;
+    }
+
+    const lesson = courseData[currentTopic][currentLessonIndex];
+
+    document.getElementById('lessonTitle').innerText = lesson.title;
+    document.getElementById('lessonText').innerText = lesson.content;
+
+    document.getElementById('lessonContent').style.display = "block";
+}
+
+// Next lesson
+function nextLesson() {
+    if (!courseData[currentTopic]) return;
+
+    currentLessonIndex++;
+
+    if (currentLessonIndex >= courseData[currentTopic].length) {
+        alert("🎉 You finished this course!");
+        return;
+    }
+
+    showLesson();
+
+    localStorage.setItem('lessonIndex', currentLessonIndex);
+}
+
+// Previous lesson
+function prevLesson() {
+    if (currentLessonIndex > 0) {
+        currentLessonIndex--;
+        showLesson();
+
+        localStorage.setItem('lessonIndex', currentLessonIndex);
+    }
+}
+
+// Complete lesson (progress system)
+function completeLesson() {
+    let progress = localStorage.getItem('progress') || 0;
+
+    progress = parseInt(progress) + 10;
+
+    if (progress > 100) progress = 100;
+
+    localStorage.setItem('progress', progress);
+
+    alert("Lesson completed! 🎉 Progress updated.");
+}
+
+// ================= MODERN QUIZ SYSTEM (THESIS VERSION) =================
+
+let quizData = {};
+let currentQuestionIndex = 0;
+let score = 0;
+let currentQuiz = "";
+let answered = false;
+
+// ================= LOAD QUIZ DATA =================
+async function loadQuizData() {
+    try {
+        const res = await fetch('QuizData.json');
+        quizData = await res.json();
+    } catch (error) {
+        console.error("Error loading quiz data:", error);
+    }
+}
+loadQuizData();
+
+// ================= START QUIZ =================
+function startQuiz(topic) {
+    if (!quizData || Object.keys(quizData).length === 0) {
+        alert("Quiz still loading, please wait...");
+        return;
+    }
+
+    if (!quizData[topic]) {
+        alert("Quiz not found.");
+        return;
+    }
+
+    currentQuiz = topic;
+    currentQuestionIndex = 0;
+    score = 0;
+
+    loadQuestion();
+}
+// ================= LOAD QUESTION =================
+function loadQuestion() {
+    answered = false;
+
+    const q = quizData[currentQuiz]?.[currentQuestionIndex];
+
+    if (!q) {
+        console.error("Question undefined:", currentQuiz, currentQuestionIndex);
+        return;
+    }
+
+    // Question
+    document.getElementById('quizQuestion').innerText = q.question;
+
+    // Progress
+    document.getElementById('quizProgress').innerText =
+        `Question ${currentQuestionIndex + 1} / ${quizData[currentQuiz].length}`;
+
+    // Reset Next button (IMPORTANT)
+    document.getElementById('nextBtn').disabled = true;
+
+    // Choices
+    const container = document.getElementById('quizChoices');
+    container.innerHTML = "";
+
+    q.choices.forEach((choice, index) => {
+        const btn = document.createElement("button");
+        btn.className = "btn-quiz-outline";
+        btn.innerText = choice;
+
+        btn.onclick = () => checkAnswer(index, btn);
+
+        container.appendChild(btn);
+    });
+}
+
+// ================= CHECK ANSWER =================
+function checkAnswer(selected, btn) {
+    if (answered) return; // prevent double click
+
+    answered = true;
+
+    const correct = quizData[currentQuiz][currentQuestionIndex].answer;
+    const buttons = document.querySelectorAll('#quizChoices button');
+
+    // Disable all buttons
+    buttons.forEach(b => b.disabled = true);
+
+    if (selected === correct) {
+        score++;
+        btn.classList.add("correct");
+    } else {
+        btn.classList.add("wrong");
+        buttons[correct].classList.add("correct");
+    }
+
+    // 🔥 ENABLE NEXT BUTTON
+    document.getElementById('nextBtn').disabled = false;
+}
+
+// ================= NEXT QUESTION =================
+function nextQuestion() {
+    if (!currentQuiz) return;
+
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex >= quizData[currentQuiz].length) {
+        showResult();
+        return;
+    }
+
+    loadQuestion();
+}
+
+// ================= RESULT SCREEN =================
+function showResult() {
+    const total = quizData[currentQuiz].length;
+
+    document.getElementById('quizQuestion').innerText = `🎉 Quiz Completed!`;
+    document.getElementById('quizProgress').innerText = `Score: ${score} / ${total}`;
+
+    document.getElementById('quizChoices').innerHTML = `
+        <p style="font-size:1.2rem; margin-top:20px;">
+            You got ${score} out of ${total} questions correct.
+        </p>
+    `;
+
+    // Disable next after finish
+    document.getElementById('nextBtn').disabled = true;
+
+    // Save score
+    localStorage.setItem(`quizScore_${currentQuiz}`, score);
+}
+
+// ================= SELECT QUIZ (UI) =================
+function selectQuiz(element, topic) {
+    document.querySelectorAll('.quiz-option').forEach(el => {
+        el.classList.remove('active');
+    });
+
+    element.classList.add('active');
+    startQuiz(topic);
+}
+
+console.log("Quiz Data:", quizData);
+console.log("Current Quiz:", currentQuiz);
+console.log("Question Index:", currentQuestionIndex);

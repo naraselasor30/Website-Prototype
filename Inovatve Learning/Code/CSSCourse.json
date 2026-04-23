@@ -1,0 +1,36 @@
+{
+  "CSS": [
+    {
+      "title": "Introduction to CSS",
+      "content": "CSS (Cascading Style Sheets) is used to style and layout web pages. It controls colors, fonts, spacing, and positioning."
+    },
+    {
+      "title": "CSS Syntax",
+      "content": "CSS consists of selectors and declarations. A declaration includes a property and a value. Example: color: red;"
+    },
+    {
+      "title": "Selectors",
+      "content": "Selectors are used to target HTML elements. Examples include element selectors, class selectors, and ID selectors."
+    },
+    {
+      "title": "Colors and Backgrounds",
+      "content": "CSS allows you to change text colors, background colors, and add gradients or images."
+    },
+    {
+      "title": "Box Model",
+      "content": "Every element is a box consisting of margin, border, padding, and content. Understanding the box model is essential."
+    },
+    {
+      "title": "Flexbox",
+      "content": "Flexbox is a layout system that helps align and distribute space among items in a container."
+    },
+    {
+      "title": "Grid",
+      "content": "CSS Grid is a powerful layout system for creating complex designs."
+    },
+    {
+      "title": "Responsive Design",
+      "content": "Responsive design ensures your website looks good on all devices using media queries."
+    }
+  ]
+}

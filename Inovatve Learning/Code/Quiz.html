@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Innovative Learning - Quiz</title>
+
     <link rel="stylesheet" href="Design.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
+
 <body class="quiz-page"> 
+
+    <!-- NAVBAR -->
     <header class="navbar">
         <div class="nav-container">
+
             <div class="brand">
                 <img src="../Pictures/Logo/Logo.png" alt="Logo" class="main-logo">
                 <div class="brand-text">
@@ -20,13 +26,13 @@
             </div>
             
             <nav class="central-nav">
-                <a href="Home.html" class="nav-item home-link">
+                <a href="Home.html" class="nav-item">
                     <i class="fa-solid fa-house"></i> Home
                 </a>
-                <a href="Learn.html" class="nav-item learn-link">
+                <a href="Learn.html" class="nav-item">
                     <i class="fa-solid fa-book-open"></i> Learn
                 </a>
-                <a href="Quiz.html" class="nav-item quiz-link">
+                <a href="Quiz.html" class="nav-item active">
                     <i class="fa-solid fa-pen-nib"></i> Quiz
                 </a>
             </nav>
@@ -36,7 +42,7 @@
                     <a href="javascript:void(0)" class="action-item" onclick="openModal('subModal')">
                         <i class="fa-solid fa-crown"></i> Subscription
                     </a>
-                    
+
                     <a href="#" class="action-item">
                         <i class="fa-regular fa-circle-question"></i> Help
                     </a>
@@ -56,6 +62,7 @@
         </div>
     </header>
 
+    <!-- MODALS -->
     <div id="subModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('subModal')">&times;</span>
@@ -74,11 +81,60 @@
         </div>
     </div>
 
+    <!-- MAIN -->
     <main class="hero-section">
+
         <div class="welcome-badge">✦ Knowledge Check</div>
         <h1 class="hero-title">Test Your Skills</h1>
-        <p class="hero-subtitle">Challenge yourself with quizzes and earn your certificates.</p>
+        <p class="hero-subtitle">Choose a quiz and answer the questions.</p>
+
+        <!-- QUIZ SELECTOR -->
+        <div class="quiz-selector">
+
+            <div class="quiz-option" onclick="selectQuiz(this, 'HTML')">
+                <i class="fa-solid fa-code"></i>
+                <h4>HTML</h4>
+                <p>Structure of web pages</p>
+            </div>
+
+            <div class="quiz-option" onclick="selectQuiz(this, 'CSS')">
+                <i class="fa-solid fa-paintbrush"></i>
+                <h4>CSS</h4>
+                <p>Design and layout</p>
+            </div>
+
+            <div class="quiz-option" onclick="selectQuiz(this, 'JS')">
+                <i class="fa-solid fa-bolt"></i>
+                <h4>JavaScript</h4>
+                <p>Interactivity</p>
+            </div>
+
+        </div>
+
+        <!-- QUIZ CARD -->
+        <div class="quiz-card">
+
+            <div class="quiz-progress" id="quizProgress">
+                Select a quiz to begin
+            </div>
+
+            <h2 id="quizQuestion">
+                Click a quiz above to start
+            </h2>
+
+            <div id="quizChoices"></div>
+
+            <!-- 🔥 IMPORTANT: ID MUST MATCH JS -->
+            <button class="btn-next" id="nextBtn" onclick="nextQuestion()" disabled>
+                Next →
+            </button>
+
+        </div>
+
     </main>
+
+    <!-- 🔥 IMPORTANT: LOAD AFTER HTML -->
     <script src="Security.js"></script>
+
 </body>
 </html>

@@ -75,10 +75,69 @@
     </div>
 
     <main class="hero-section">
+
         <div class="welcome-badge">✦ Study Modules</div>
         <h1 class="hero-title">Start Your Journey</h1>
-        <p class="hero-subtitle">Choose from our wide variety of interactive lessons.</p>
-        </main>
+        <p class="hero-subtitle">Choose from our interactive lessons.</p>
+
+        <!-- LESSON CARDS -->
+        <section class="info-cards">
+
+            <div class="info-card">
+                <div class="icon-circle dark">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <div class="card-content">
+                    <h4>HTML Basics</h4>
+                    <p>Learn structure of websites</p>
+                    <button class="btn-quiz-outline" onclick="startLesson('HTML')">Start</button>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="icon-circle orange">
+                    <i class="fa-solid fa-paintbrush"></i>
+                </div>
+                <div class="card-content">
+                    <h4>CSS Styling</h4>
+                    <p>Design beautiful layouts</p>
+                    <button class="btn-quiz-outline" onclick="startLesson('CSS')">Start</button>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="icon-circle green">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <div class="card-content">
+                    <h4>JavaScript</h4>
+                    <p>Add interactivity</p>
+                    <button class="btn-quiz-outline" onclick="startLesson('JS')">Start</button>
+                </div>
+            </div>
+
+        </section>
+        <section id="lessonContent" class="info-card" style="margin: 50px auto; display:none;">
+            
+            <div class="card-content">
+                <h3 id="lessonTitle">Lesson Title</h3>
+                <p id="lessonText">Lesson content will appear here...</p>
+
+                <br>
+
+                <!-- NAVIGATION BUTTONS (DITO ILAGAY) -->
+                <button class="btn-quiz-outline" onclick="prevLesson()">← Previous</button>
+                <button class="btn-quiz-outline" onclick="nextLesson()">Next →</button>
+
+                <br><br>
+
+                <!-- COMPLETE BUTTON -->
+                <button class="btn-start" onclick="completeLesson()">Mark as Complete</button>
+            </div>
+
+        </section>
+
+    </main>
     <script src="Security.js"></script>
 </body>
 </html>

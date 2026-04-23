@@ -1,0 +1,44 @@
+{
+  "HTML": [
+    {
+      "title": "Introduction to HTML",
+      "content": "HTML (HyperText Markup Language) is the standard language used to create web pages. It provides the structure of a webpage by using elements and tags. Every website you visit is built using HTML in combination with CSS and JavaScript. HTML defines headings, paragraphs, images, links, and other types of content."
+    },
+    {
+      "title": "How the Web Works",
+      "content": "When you enter a website URL in your browser, a request is sent to a server. The server responds by sending HTML files back to your browser. The browser then reads and renders the HTML into a visual layout. HTML acts as the skeleton of a webpage."
+    },
+    {
+      "title": "Basic HTML Structure",
+      "content": "Every HTML document follows a standard structure. It begins with a DOCTYPE declaration, followed by html, head, and body tags. The head contains metadata such as the title, while the body contains the visible content of the page."
+    },
+    {
+      "title": "HTML Elements and Tags",
+      "content": "HTML uses tags to define elements. Tags usually come in pairs: an opening tag and a closing tag. For example, <p> is used for paragraphs and </p> closes it. Elements can also contain attributes which provide additional information."
+    },
+    {
+      "title": "Text Formatting",
+      "content": "HTML provides tags for formatting text such as headings (h1 to h6), paragraphs (p), bold (b), italic (i), and more. Proper use of text formatting improves readability and structure."
+    },
+    {
+      "title": "Links and Navigation",
+      "content": "The anchor tag <a> is used to create links. It uses the href attribute to define the destination. Links are essential for navigation between pages."
+    },
+    {
+      "title": "Images in HTML",
+      "content": "Images are added using the <img> tag. It requires a source (src) and alternative text (alt). Images make web pages more engaging."
+    },
+    {
+      "title": "Lists in HTML",
+      "content": "HTML supports ordered lists (ol) and unordered lists (ul). Each list contains list items (li). Lists are useful for organizing information."
+    },
+    {
+      "title": "Forms and Input",
+      "content": "Forms allow users to input data. HTML forms include input fields, buttons, and labels. They are commonly used for login systems and data submission."
+    },
+    {
+      "title": "Best Practices",
+      "content": "Always use proper indentation, close tags correctly, and write semantic HTML. This ensures your code is readable and maintainable."
+    }
+  ]
+}

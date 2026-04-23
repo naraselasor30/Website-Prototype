@@ -1,0 +1,36 @@
+{
+  "JS": [
+    {
+      "title": "Introduction to JavaScript",
+      "content": "JavaScript is a programming language used to make web pages interactive."
+    },
+    {
+      "title": "Variables",
+      "content": "Variables store data. You can declare them using var, let, or const."
+    },
+    {
+      "title": "Data Types",
+      "content": "JavaScript has different data types such as strings, numbers, booleans, and objects."
+    },
+    {
+      "title": "Functions",
+      "content": "Functions are blocks of code that perform a specific task."
+    },
+    {
+      "title": "Events",
+      "content": "Events allow you to respond to user actions like clicks and typing."
+    },
+    {
+      "title": "DOM Manipulation",
+      "content": "JavaScript can change HTML content dynamically using the DOM."
+    },
+    {
+      "title": "Conditions",
+      "content": "Conditions allow decision making using if, else, and switch."
+    },
+    {
+      "title": "Loops",
+      "content": "Loops repeat code multiple times, such as for and while loops."
+    }
+  ]
+}

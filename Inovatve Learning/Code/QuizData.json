@@ -1,0 +1,90 @@
+{
+  "HTML": [
+    {
+      "question": "What does HTML stand for?",
+      "choices": [
+        "Hyper Text Markup Language",
+        "High Tech Machine Learning",
+        "Home Tool Mark Language",
+        "Hyperlinks Text Mark Language"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Which tag is used for headings?",
+      "choices": [
+        "<p>",
+        "<h1>",
+        "<div>",
+        "<span>"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which tag is used for links?",
+      "choices": [
+        "<a>",
+        "<link>",
+        "<href>",
+        "<url>"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Which tag displays images?",
+      "choices": [
+        "<img>",
+        "<image>",
+        "<src>",
+        "<pic>"
+      ],
+      "answer": 0
+    }
+  ],
+
+  "CSS": [
+    {
+      "question": "What does CSS stand for?",
+      "choices": [
+        "Cascading Style Sheets",
+        "Computer Style System",
+        "Creative Style Syntax",
+        "Colorful Style Sheet"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Which property changes text color?",
+      "choices": [
+        "font-color",
+        "text-color",
+        "color",
+        "style"
+      ],
+      "answer": 2
+    }
+  ],
+
+  "JS": [
+    {
+      "question": "Which language adds interactivity?",
+      "choices": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Python"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "How do you declare a variable?",
+      "choices": [
+        "var x",
+        "let x",
+        "const x",
+        "All of the above"
+      ],
+      "answer": 3
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovative Learning - Profile</title>
+
+    <!-- Existing CSS -->
+    <link rel="stylesheet" href="Design.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="profile-page">
+
+    <!-- NAVBAR (SAME SYSTEM) -->
+    <header class="navbar">
+        <div class="nav-container">
+
+            <div class="brand">
+                <img src="../Pictures/Logo/Logo.png" alt="Logo" class="main-logo">
+                <div class="brand-text">
+                    <span class="company-name">Innovative Learning</span>
+                    <span class="tagline">Learn • Practice • Grow</span>
+                </div>
+            </div>
+
+            <div class="user-actions">
+                <a href="Home.html" class="btn-back">Back to Home</a>
+
+                <button class="btn-signin" onclick="logout()">
+                    <i class="fa-solid fa-right-from-bracket"></i> Log Out
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- PROFILE DASHBOARD -->
+    <main class="profile-container">
+
+        <!-- LEFT PANEL -->
+        <div class="profile-left">
+
+            <div class="profile-card">
+
+                <div class="profile-header"></div>
+
+                <div class="profile-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <h2 id="usernameDisplay">Hi, User!</h2>
+                <p class="username-sub">@username</p>
+
+                <!-- PROGRESS -->
+                <div class="progress-box">
+                    <p><strong>Learning Progress</strong></p>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+
+                    <span id="progressText">54%</span>
+                </div>
+
+                <!-- MENU -->
+                <div class="profile-menu" style="margin-top:20px;">
+                    <p>Overview</p>
+                    <p>My Learning</p>
+                    <p>Achievements</p>
+                    <p>Settings</p>
+                </div>
+
+                <br>
+
+                <button class="btn-quiz-outline">Edit Profile</button>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="profile-right">
+
+            <h2>Overview ✨</h2>
+            <p style="color:#666; font-size:0.9rem;">
+                "Every day is chance to learn something new"
+            </p>
+
+            <!-- STATS -->
+            <div class="stats-container">
+
+                <div class="stat-box">
+                    <i class="fa-solid fa-book-open"></i>
+                    <h3>12</h3>
+                    <p>Lessons Completed</p>
+                </div>
+
+                <div class="stat-box">
+                    <i class="fa-solid fa-star"></i>
+                    <h3>4.8</h3>
+                    <p>Quiz Average</p>
+                </div>
+
+                <div class="stat-box">
+                    <i class="fa-solid fa-clock"></i>
+                    <h3>2h 30m</h3>
+                    <p>Study Time</p>
+                </div>
+
+            </div>
+
+            <!-- ACTIVITY -->
+            <div class="activity-box">
+                <h3>Recent Activity</h3>
+
+                <p>📘 Completed: Python Basics</p>
+                <p>📝 Quiz: CSS Fundamentals (4/5 Correct)</p>
+                <p>🏆 Earned: First Badge</p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- JS -->
+    <script src="Security.js"></script>
+
+</body>
+</html>
