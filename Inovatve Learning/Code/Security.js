@@ -309,7 +309,3 @@ function selectQuiz(element, topic) {
     element.classList.add('active');
     startQuiz(topic);
 }
-
-console.log("Quiz Data:", quizData);
-console.log("Current Quiz:", currentQuiz);
-console.log("Question Index:", currentQuestionIndex);
