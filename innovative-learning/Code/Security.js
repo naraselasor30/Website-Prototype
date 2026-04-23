@@ -68,7 +68,9 @@ function checkAuthStatus() {
 }
 
 // Patakbuhin tuwing mag-load ang page
-window.onload = checkAuthStatus;
+window.addEventListener("load", () => {
+    checkAuthStatus();
+});
 
 
 function loadProfile() {
