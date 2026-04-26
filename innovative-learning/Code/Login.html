@@ -48,14 +48,14 @@
                         <label>Username</label>
                         <div class="input-wrapper">
                             <i class="fa-regular fa-envelope"></i>
-                            <input type="text" placeholder="Enter your Username">
+                            <input type="text" id="username" placeholder="Enter your Username">
                         </div>
                     </div>
                     <div class="input-group">
                         <label>Password</label>
                         <div class="input-wrapper">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" class="password-input" placeholder="Enter your password">
+                            <input type="password" id="password" class="password-input" placeholder="Enter your password">
                             <i class="fa-regular fa-eye toggle-password"></i>
                         </div>
                         <a href="#" class="forgot-link">Forgot password?</a>
@@ -74,28 +74,29 @@
 
                 <form class="auth-form">
 
-                    <div class="name-row">
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-user"></i>
-                            <input type="text" placeholder="First Name">
-                        </div>
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-user"></i>
-                            <input type="text" placeholder="Last Name">
-                        </div>
+                <div class="name-row">
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="regFirstName" placeholder="First Name" required>
                     </div>
+
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="regLastName" placeholder="Last Name" required>
+                    </div>
+                </div>
 
                     <div class="input-group">
                         <div class="input-wrapper">
                             <i class="fa-solid fa-user"></i>
-                            <input type="text" placeholder="Username">
+                            <input type="text" id="regUsername" placeholder="Username">
                         </div>
                     </div>
 
                     <div class="input-group">
                         <div class="input-wrapper">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" class="password-input" placeholder="Create password">
+                            <input type="password" id="regPassword" class="password-input" placeholder="Create password">
                             <i class="fa-regular fa-eye toggle-password"></i>
                         </div>
                     </div>
@@ -103,17 +104,24 @@
                     <div class="input-group">
                         <div class="input-wrapper">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" class="password-input" placeholder="Re-enter your password">
+                            <input type="password" id="confirmPassword" class="password-input" placeholder="Re-enter your password">
                             <i class="fa-regular fa-eye toggle-password"></i>
                         </div>
                     </div>
                     
                     <div class="terms-container">
-                        <input type="checkbox" id="terms">
-                        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                        <input type="checkbox" id="termsCheck">
+                        <label for="termsCheck">
+                            I agree to the 
+                            <a href="javascript:void(0)" onclick="openLegal('Terms.json')">Terms of Service</a> 
+                            and 
+                            <a href="javascript:void(0)" onclick="openLegal('Privacy.json')">Privacy Policy</a>
+                        </label>
                     </div>
 
-                    <button type="submit" class="btn-submit-main">Create Account ></button>
+                    <button type="button" class="btn-submit-main" onclick="handleRegister()">
+                        Create Account >
+                    </button>
 
                 </form>
             </div>
@@ -141,5 +149,14 @@
             }
         }
     </script>
+
+    <div id="legalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLegalModal()">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <p id="modalText"></p>
+        </div>
+    </div>
+
 </body>
 </html>

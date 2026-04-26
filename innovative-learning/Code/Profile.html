@@ -70,15 +70,9 @@
                     <p>Overview</p>
                     <p>My Learning</p>
                     <p>Achievements</p>
-                    <p>Settings</p>
+                    <p onclick="openSettingsModal()">Settings</p>
                 </div>
-
-                <br>
-
-                <button class="btn-quiz-outline">Edit Profile</button>
-
             </div>
-
         </div>
 
         <!-- RIGHT PANEL -->
@@ -167,6 +161,63 @@
 
     <!-- JS -->
     <script src="Security.js"></script>
+
+    <script>
+        const user = JSON.parse(localStorage.getItem("currentUser"));
+
+        if (user) {
+
+            // FULL NAME
+            document.getElementById("usernameDisplay").innerText =
+                "Hi, " + user.firstName + " " + user.lastName + "!";
+
+            // USERNAME
+            document.querySelector(".username-sub").innerText =
+                "@" + user.username;
+
+            // XP MESSAGE (optional pero solid)
+            document.querySelector(".xp-box p").innerText =
+                "Keep going, " + user.username + "! You're on a 5-day streak";
+        }
+    </script>
+
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-btn" onclick="closeSettingsModal()">&times;</span>
+
+            <h2>Profile Settings</h2>
+
+            <div class="input-group">
+                <label>First Name</label>
+                <input type="text" id="settingsFirstName">
+            </div>
+
+            <div class="input-group">
+                <label>Last Name</label>
+                <input type="text" id="settingsLastName">
+            </div>
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="settingsUsername">
+            </div>
+
+            <div class="input-group">
+                <label>New Password</label>
+                <input type="password" id="settingsPassword">
+            </div>
+
+            <button class="btn-submit-main" onclick="saveSettingsChanges()">
+                Save Changes
+            </button>
+
+            <button class="btn-quiz-outline" onclick="logout()" style="margin-top:10px;">
+                Log Out
+            </button>
+
+        </div>
+    </div>
 
 </body>
 </html>

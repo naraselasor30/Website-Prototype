@@ -45,8 +45,28 @@ document.querySelectorAll('.toggle-password').forEach(icon => {
 
 // Function para sa Login (ilalagay sa onclick ng button sa Login.html)
 function handleLogin() {
-    localStorage.setItem('isLoggedIn', 'true');
-    window.location.href = "Home.html";
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const foundUser = users.find(user =>
+        user.username === username && user.password === password
+    );
+
+    if (foundUser) {
+        localStorage.setItem('isLoggedIn', 'true');
+
+        // 🔥 SAVE FULL USER DATA
+        localStorage.setItem("currentUser", JSON.stringify(foundUser));
+
+        // Optional fallback
+        localStorage.setItem('username', foundUser.username);
+
+        window.location.href = "Home.html";
+    } else {
+        alert("Invalid username or password!");
+    }
 }
 
 // Function para i-check kung naka-login na
@@ -81,6 +101,141 @@ function loadProfile() {
     }
 }
 
+function logout() {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    localStorage.removeItem('currentUser');
+
+    window.location.href = "Home.html";
+}
+
+function handleRegister() {
+    const firstName = document.getElementById("regFirstName").value;
+    const lastName = document.getElementById("regLastName").value;
+    const username = document.getElementById("regUsername").value;
+    const password = document.getElementById("regPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const terms = document.getElementById("termsCheck").checked;
+
+    // REQUIRED
+    if (!firstName || !lastName || !username || !password || !confirmPassword) {
+        alert("Please fill all fields!");
+        return;
+    }
+
+    // TERMS
+    if (!terms) {
+        alert("You must agree to the Terms and Privacy Policy!");
+        return;
+    }
+
+    // MATCH
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    // LENGTH
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters!");
+        return;
+    }
+
+    // RULES
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]+$/;
+
+    if (!passwordRegex.test(password)) {
+        alert("Password must:\n- Have 1 uppercase\n- Have 1 number\n- No special characters");
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const exists = users.find(user => user.username === username);
+
+    if (exists) {
+        alert("Username already exists!");
+        return;
+    }
+
+    // 🔥 SAVE FULL DATA
+    users.push({
+        firstName,
+        lastName,
+        username,
+        password
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Account created! You can now login.");
+}
+
+async function openLegal(file) {
+    const response = await fetch(file);
+    const data = await response.json();
+
+    document.getElementById("modalTitle").innerText = data.title;
+    document.getElementById("modalText").innerText = data.content;
+
+    document.getElementById("legalModal").style.display = "block";
+}
+
+function closeLegalModal() {
+    document.getElementById("legalModal").style.display = "none";
+}
+
+function openSettingsModal() {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (!user) return;
+
+    document.getElementById("settingsFirstName").value = user.firstName;
+    document.getElementById("settingsLastName").value = user.lastName;
+    document.getElementById("settingsUsername").value = user.username;
+    document.getElementById("settingsPassword").value = "";
+
+    document.getElementById("settingsModal").style.display = "block";
+}
+
+function closeSettingsModal() {
+    document.getElementById("settingsModal").style.display = "none";
+}
+
+function saveSettingsChanges() {
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    const newFirstName = document.getElementById("settingsFirstName").value;
+    const newLastName = document.getElementById("settingsLastName").value;
+    const newUsername = document.getElementById("settingsUsername").value;
+    const newPassword = document.getElementById("settingsPassword").value;
+
+    const userIndex = users.findIndex(user =>
+        user.username === currentUser.username
+    );
+
+    if (userIndex === -1) {
+        alert("User not found!");
+        return;
+    }
+
+    users[userIndex].firstName = newFirstName;
+    users[userIndex].lastName = newLastName;
+    users[userIndex].username = newUsername;
+
+    if (newPassword.trim() !== "") {
+        users[userIndex].password = newPassword;
+    }
+
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("currentUser", JSON.stringify(users[userIndex]));
+    localStorage.setItem("username", newUsername);
+
+    alert("Settings updated successfully!");
+
+    location.reload();
+}
 
 // ================= LESSON SYSTEM (JSON-BASED) =================
 

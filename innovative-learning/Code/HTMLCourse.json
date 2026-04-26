@@ -1,44 +1,312 @@
 {
   "HTML": [
     {
-      "title": "Introduction to HTML",
-      "content": "HTML (HyperText Markup Language) is the standard language used to create web pages. It provides the structure of a webpage by using elements and tags. Every website you visit is built using HTML in combination with CSS and JavaScript. HTML defines headings, paragraphs, images, links, and other types of content."
+      "title": "What is HTML and how it works",
+      "content": "HTML (HyperText Markup Language) is the standard language used to create web pages. It works by using tags to structure content so that web browsers can display text, images, and other elements properly."
     },
     {
-      "title": "How the Web Works",
-      "content": "When you enter a website URL in your browser, a request is sent to a server. The server responds by sending HTML files back to your browser. The browser then reads and renders the HTML into a visual layout. HTML acts as the skeleton of a webpage."
+      "title": "Structure of an HTML document",
+      "content": "An HTML document has a standard layout that includes a declaration, root element, head section, and body section. This structure helps browsers understand and render the page correctly."
     },
     {
-      "title": "Basic HTML Structure",
-      "content": "Every HTML document follows a standard structure. It begins with a DOCTYPE declaration, followed by html, head, and body tags. The head contains metadata such as the title, while the body contains the visible content of the page."
+      "title": "<html>",
+      "content": "The root element that contains the entire webpage."
     },
     {
-      "title": "HTML Elements and Tags",
-      "content": "HTML uses tags to define elements. Tags usually come in pairs: an opening tag and a closing tag. For example, <p> is used for paragraphs and </p> closes it. Elements can also contain attributes which provide additional information."
+      "title": "<head>",
+      "content": "Contains metadata like title and links (not visible on the page)."
     },
     {
-      "title": "Text Formatting",
-      "content": "HTML provides tags for formatting text such as headings (h1 to h6), paragraphs (p), bold (b), italic (i), and more. Proper use of text formatting improves readability and structure."
+      "title": "<body>",
+      "content": "Contains all visible content like text, images, and links."
     },
     {
-      "title": "Links and Navigation",
-      "content": "The anchor tag <a> is used to create links. It uses the href attribute to define the destination. Links are essential for navigation between pages."
+      "title": "Creating your first HTML page",
+      "content": "This involves writing basic HTML code in a text editor, saving it with a .html extension, and opening it in a browser to display your webpage."
     },
     {
-      "title": "Images in HTML",
-      "content": "Images are added using the <img> tag. It requires a source (src) and alternative text (alt). Images make web pages more engaging."
+      "title": "HTML elements and tags",
+      "content": "An HTML element is everything from the opening tag to the closing tag, including content. Tags are the keywords (like <p>) used to define elements."
     },
     {
-      "title": "Lists in HTML",
-      "content": "HTML supports ordered lists (ol) and unordered lists (ul). Each list contains list items (li). Lists are useful for organizing information."
+      "title": "Opening vs closing tags",
+      "content": "Opening tags start an element (e.g., <p>), while closing tags end it (e.g., </p>). Most HTML elements require both."
     },
     {
-      "title": "Forms and Input",
-      "content": "Forms allow users to input data. HTML forms include input fields, buttons, and labels. They are commonly used for login systems and data submission."
+      "title": "Headings <h1> to <h6>",
+      "content": "These tags define headings, where <h1> is the largest and most important, and <h6> is the smallest."
     },
     {
-      "title": "Best Practices",
-      "content": "Always use proper indentation, close tags correctly, and write semantic HTML. This ensures your code is readable and maintainable."
+      "title": "Paragraphs <p>",
+      "content": "The <p> tag is used to define paragraphs of text, automatically adding space before and after the text."
+    },
+    {
+      "title": "Line breaks <br>",
+      "content": "The <br> tag inserts a line break, moving content to the next line without starting a new paragraph."
+    },
+    {
+      "title": "Horizontal lines <hr>",
+      "content": "The <hr> tag creates a horizontal line used to separate sections of content."
+    },
+    {
+      "title": "Text formatting: <b>, <i>, <u>",
+      "content": "<b>: Makes text bold. <i>: Makes text italic. <u>: Underlines text."
+    },
+    {
+      "title": "Strong vs emphasis (<strong>, <em>)",
+      "content": "<strong>: Indicates important text (usually bold).\n <em>: Emphasizes text (usually italic). These also add meaning, not just style."
+    },
+    {
+      "title": "HTML comments",
+      "content": "Comments are notes in the code that are not displayed in the browser. Written as: <!-- comment -->."
+    },
+    {
+      "title": "Nesting elements properly",
+      "content": "This means placing HTML elements inside others correctly, without overlapping tags, to avoid errors and ensure proper display."
+    },
+    {
+      "title": "Attributes in HTML",
+      "content": "Attributes provide extra information about elements and are placed inside the opening tag (e.g., <p class='text'>)."
+    },
+    {
+      "title": "The title attribute",
+      "content": "The title attribute provides additional information about an element, usually shown as a tooltip when hovered."
+    },
+    {
+      "title": "The lang attribute",
+      "content": "The lang attribute specifies the language of the webpage (e.g., <html lang='en'>), helping browsers and search engines."
+    },
+    {
+      "title": "File structure of a website",
+      "content": "This refers to how files (HTML, CSS, images, etc.) are organized into folders to keep a website clean and manageable."
+    },
+    {
+      "title": "Saving and opening HTML files",
+      "content": "HTML files are saved with a .html extension and can be opened in any web browser to view the webpage."
+    },
+    {
+      "title": "Introduction to web browsers",
+      "content": "Web browsers (like Chrome or Edge) are applications that read HTML code and display it as a visual webpage for users."
+    },
+    {
+      "title": "Anchor tag <a>",
+      "content": "The <a> (anchor) tag is used to create hyperlinks that allow users to navigate from one page to another or to different sections of a page."
+    },
+    {
+      "title": "Linking to another page",
+      "content": "This means connecting one HTML page to another using a hyperlink so users can click and move between pages."
+    },
+    {
+      "title": "Opening links in new tabs",
+      "content": "This is done by using the target=\"_blank\" attribute in an anchor tag so the link opens in a new browser tab instead of the current one."
+    },
+    {
+      "title": "Internal vs external links",
+      "content": "Internal links: Links that go to pages within the same website. External links: Links that go to a different website."
+    },
+    {
+      "title": "Email links (mailto:)",
+      "content": "A mailto: link allows users to open their email application and send an email directly by clicking the link."
+    },
+    {
+      "title": "Adding images <img>",
+      "content": "The <img> tag is used to display images on a webpage. It does not have a closing tag."
+    },
+    {
+      "title": "Image attributes (src, alt)",
+      "content": "src: Specifies the path or URL of the image. alt: Provides alternative text if the image cannot be displayed."
+    },
+    {
+      "title": "Image sizes (width & height)",
+      "content": "These attributes control the size of an image on a webpage, either in pixels or percentages."
+    },
+    {
+      "title": "Linking images",
+      "content": "This means making an image clickable by placing it inside an anchor <a> tag, so clicking the image redirects to another page or link."
+    },
+    {
+      "title": "Adding audio <audio>",
+      "content": "The <audio> tag is used to embed sound or music into a webpage, with controls like play and pause."
+    },
+    {
+      "title": "Adding video <video>",
+      "content": "The <video> tag is used to embed videos directly into a webpage with playback controls."
+    },
+    {
+      "title": "Embedding YouTube videos",
+      "content": "This involves using an <iframe> to display a YouTube video directly on your webpage without uploading the video file."
+    },
+    {
+      "title": "Favicon (tab icon)",
+      "content": "A favicon is the small icon displayed in the browser tab, usually added using a <link> tag in the <head> section."
+    },
+    {
+      "title": "File paths (absolute vs relative)",
+      "content": "Absolute path: Full URL to a file. Relative path: Location of a file relative to the current file."
+    },
+    {
+      "title": "Image formats (jpg, png, gif)",
+      "content": "JPG/JPEG: Best for photos with many colors. PNG: Supports transparency and high quality. GIF: Supports simple animations."
+    },
+    {
+      "title": "Ordered lists <ol>",
+      "content": "An ordered list displays items in a numbered format (1, 2, 3…). It is used when the order of items matters."
+    },
+    {
+      "title": "Unordered lists <ul>",
+      "content": "An unordered list displays items with bullet points. It is used when the order does not matter."
+    },
+    {
+      "title": "List items <li>",
+      "content": "The <li> tag represents each item inside a list (<ol> or <ul>)."
+    },
+    {
+      "title": "Nested lists",
+      "content": "A nested list is a list placed inside another list, used to create sub-items or categories."
+    },
+    {
+      "title": "Description lists <dl>",
+      "content": "A description list is used for terms and their descriptions."
+    },
+    {
+      "title": "Creating tables <table>",
+      "content": "The <table> tag is used to organize data into rows and columns."
+    },
+    {
+      "title": "Table rows <tr>",
+      "content": "The <tr> tag defines a row in a table."
+    },
+    {
+      "title": "Table data <td>",
+      "content": "The <td> tag defines a standard data cell inside a table."
+    },
+    {
+      "title": "Table headers <th>",
+      "content": "The <th> tag defines a header cell, usually bold and centered, used for titles of columns or rows."
+    },
+    {
+      "title": "Table borders",
+      "content": "Table borders are lines around table cells, added using HTML attributes or CSS to make the table visible and structured."
+    },
+    {
+      "title": "Merging cells (colspan, rowspan)",
+      "content": "colspan: Merges columns (horizontal merging). rowspan: Merges rows (vertical merging)."
+    },
+    {
+      "title": "Table captions",
+      "content": "A table caption is a title or description for a table, added using the <caption> tag."
+    },
+    {
+      "title": "Styling basic tables",
+      "content": "This involves using CSS to change the appearance of tables, such as colors, borders, spacing, and alignment."
+    },
+    {
+      "title": "Accessibility in tables",
+      "content": "Accessibility ensures tables are usable for all users, including those using screen readers, by using proper tags like <th> and attributes like scope."
+    },
+    {
+      "title": "Practice: build a student table",
+      "content": "This means applying your knowledge by creating a table that displays student information (e.g., name, age, course), helping reinforce learning."
+    },
+        {
+      "title": "Introduction to forms <form>",
+      "content": "The <form> tag is used to create a section in a webpage where users can input and submit data, such as login or registration details."
+    },
+    {
+      "title": "Input types (text, password)",
+      "content": "text: Allows users to enter plain text. password: Hides the entered characters for security."
+    },
+    {
+      "title": "Labels <label>",
+      "content": "The <label> tag is used to describe an input field, helping users understand what information to enter."
+    },
+    {
+      "title": "Buttons <button>",
+      "content": "The <button> tag creates clickable buttons used to perform actions like submitting a form or triggering events."
+    },
+    {
+      "title": "Submit button",
+      "content": "A submit button sends the form data to a server for processing when clicked."
+    },
+    {
+      "title": "Radio buttons",
+      "content": "Radio buttons allow users to select only one option from a group."
+    },
+    {
+      "title": "Checkboxes",
+      "content": "Checkboxes allow users to select one or more options from a list."
+    },
+    {
+      "title": "Dropdown <select>",
+      "content": "The <select> tag creates a dropdown list where users can choose one option from multiple choices."
+    },
+    {
+      "title": "Textarea",
+      "content": "The <textarea> tag allows users to enter multi-line text, such as comments or messages."
+    },
+    {
+      "title": "Placeholder attribute",
+      "content": "The placeholder attribute shows a hint inside an input field about what to enter."
+    },
+    {
+      "title": "Required fields",
+      "content": "The required attribute ensures that users must fill in a field before submitting the form."
+    },
+    {
+      "title": "Form validation basics",
+      "content": "Form validation checks if the user input is correct and complete before sending it to the server (e.g., required fields, correct email format)."
+    },
+    {
+      "title": "GET vs POST method",
+      "content": "GET: Sends data through the URL (visible, limited size). POST: Sends data securely in the background (not visible in URL, can handle more data)."
+    },
+    {
+      "title": "Grouping inputs <fieldset>",
+      "content": "The <fieldset> tag groups related form elements together, often with a border and a title (<legend>)."
+    },
+    {
+      "title": "Practice: create registration form",
+      "content": "This means applying your knowledge by building a form that collects user information like name, email, password, and preferences."
+    },
+    {
+      "title": "What is semantic HTML",
+      "content": "Semantic HTML is the use of tags that clearly describe the meaning and purpose of the content, making web pages easier to understand for both humans and machines."
+    },
+    {
+      "title": "<header>",
+      "content": "The <header> tag represents the top part of a webpage or section, usually containing titles, logos, or introductory content."
+    },
+    {
+      "title": "<nav>",
+      "content": "The <nav> tag is used to contain navigation links that help users move around the website."
+    },
+    {
+      "title": "<section>",
+      "content": "The <section> tag defines a group of related content, typically with a heading."
+    },
+    {
+      "title": "<article>",
+      "content": "The <article> tag is used for independent content that can stand alone, like a blog post or news article."
+    },
+    {
+      "title": "<aside>",
+      "content": "The <aside> tag is used for content that is related but not central, such as sidebars or extra information."
+    },
+    {
+      "title": "<footer>",
+      "content": "The <footer> tag represents the bottom part of a webpage or section, often containing contact info, copyright, or links."
+    },
+    {
+      "title": "Why semantics matter (SEO & accessibility)",
+      "content": "Semantic HTML helps search engines understand your content better (improving SEO) and helps assistive technologies like screen readers provide a better experience for users."
+    },
+    {
+      "title": "Structuring a webpage properly",
+      "content": "This means organizing your webpage using semantic elements in a logical way (header, navigation, main content, sidebar, footer) to improve clarity and usability."
+    },
+    {
+      "title": "Practice: semantic layout",
+      "content": "This means applying your knowledge by creating a webpage layout using semantic tags to organize content clearly and correctly."
     }
   ]
 }

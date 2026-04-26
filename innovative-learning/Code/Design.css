@@ -613,6 +613,10 @@ body {
 
 .progress-box {
     margin-top: 20px;
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: left;
 }
 
 .progress-bar {
@@ -714,12 +718,7 @@ body {
 }
 /* ===== DASHBOARD UPGRADE (ADD LANG, WAG PALIT) ===== */
 
-.overview-card {
-    background: white;
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
+
 
 /* Grid layout */
 .dashboard-grid {
@@ -757,6 +756,101 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* ===== PROFILE FINAL POLISH (SAFE ADD) ===== */
+
+/* LEFT CARD IMPROVE */
+.profile-card {
+    background: white;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* HEADER GRADIENT */
+.profile-header {
+    height: 120px;
+    background: linear-gradient(135deg, #2D463E, #3f665a);
+}
+
+/* AVATAR UPGRADE */
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    background: #f2a6b3;
+    border: 4px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+
+/* NAME EMPHASIS */
+#usernameDisplay {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+/* PROGRESS ENHANCED */
+.progress-box p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    height: 10px;
+    border-radius: 20px;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #2D463E, #4e7c6e);
+}
+
+/* MENU FIX (BIG IMPROVEMENT 🔥) */
+.profile-menu p {
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.profile-menu p:hover {
+    background: #f0f7f2;
+    color: #2D463E;
+    font-weight: 600;
+}
+
+.profile-menu p:first-child {
+    background: #e6ecea;
+    font-weight: 600;
+}
+
+/* RIGHT SIDE IMPROVE */
+.profile-right h2 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+/* ACTIVITY BOX FIX */
+.activity-box {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* STAT ICON STYLE */
+.stat-box i {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #2D463E;
+}
+
+/* OVERALL SPACING FIX */
+.profile-container {
+    margin-top: 30px;
 }
 
 /* ===== LESSON VIEW FINAL ===== */
