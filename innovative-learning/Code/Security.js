@@ -185,58 +185,6 @@ function closeLegalModal() {
     document.getElementById("legalModal").style.display = "none";
 }
 
-function openSettingsModal() {
-    const user = JSON.parse(localStorage.getItem("currentUser"));
-
-    if (!user) return;
-
-    document.getElementById("settingsFirstName").value = user.firstName;
-    document.getElementById("settingsLastName").value = user.lastName;
-    document.getElementById("settingsUsername").value = user.username;
-    document.getElementById("settingsPassword").value = "";
-
-    document.getElementById("settingsModal").style.display = "block";
-}
-
-function closeSettingsModal() {
-    document.getElementById("settingsModal").style.display = "none";
-}
-
-function saveSettingsChanges() {
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
-    const newFirstName = document.getElementById("settingsFirstName").value;
-    const newLastName = document.getElementById("settingsLastName").value;
-    const newUsername = document.getElementById("settingsUsername").value;
-    const newPassword = document.getElementById("settingsPassword").value;
-
-    const userIndex = users.findIndex(user =>
-        user.username === currentUser.username
-    );
-
-    if (userIndex === -1) {
-        alert("User not found!");
-        return;
-    }
-
-    users[userIndex].firstName = newFirstName;
-    users[userIndex].lastName = newLastName;
-    users[userIndex].username = newUsername;
-
-    if (newPassword.trim() !== "") {
-        users[userIndex].password = newPassword;
-    }
-
-    localStorage.setItem("users", JSON.stringify(users));
-    localStorage.setItem("currentUser", JSON.stringify(users[userIndex]));
-    localStorage.setItem("username", newUsername);
-
-    alert("Settings updated successfully!");
-
-    location.reload();
-}
-
 // ================= LESSON SYSTEM (JSON-BASED) =================
 
 // Storage for all courses
