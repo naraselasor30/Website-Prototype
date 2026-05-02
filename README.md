@@ -1,11 +1,14 @@
-Subject  :  Technopreneurship
-Teacher  :  Michael Jimenez
+`Subject`:  Technopreneurship
+`Teacher`:  Michael Jimenez
 
-Member  :
-            Bargo, Fatima
-            Comendador, Kurt Asher
-            De La Rueda, Leigh Justinne
-            Miguel, Almer
-            Perado, Kley
-            Rosales, Aran Emerson
+## Member
+
+```
+Bargo, Fatima
+Comendador, Kurt Asher
+De La Rueda, Leigh Justinne
+Miguel, Almer
+Perado, Kley
+Rosales, Aran Emerson
+```
 
