@@ -1,5 +1,6 @@
-`Subject`:  Technopreneurship
-`Teacher`:  Michael Jimenez
+# COURSE CODE - EXER CODE
+`Subject`: Technopreneurship  
+`Teacher`: Michael Jimenez
 
 ## Member
 
