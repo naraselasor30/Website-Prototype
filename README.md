@@ -1,4 +1,4 @@
-# COURSE CODE - EXER CODE
+# PROTOTYPE
 `Subject`: Technopreneurship  
 `Teacher`: Michael Jimenez
 
@@ -12,4 +12,6 @@ Miguel, Almer
 Perado, Kley
 Rosales, Aran Emerson
 ```
+
+## About
 
