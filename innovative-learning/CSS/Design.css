@@ -1084,3 +1084,59 @@ body {
     color: white !important;
     border-radius: 25px;
 }
+
+/* ================= PROFILE DROPDOWN MENU ================= */
+
+.profile-menu-wrapper {
+    position: relative;
+}
+
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+
+    background: white;
+    border-radius: 15px;
+
+    min-width: 230px;
+    padding: 10px 0;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    border: 1px solid rgba(0,0,0,0.05);
+
+    z-index: 9999;
+}
+
+.profile-dropdown p {
+    padding: 12px 20px;
+    margin: 0;
+
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #2D463E;
+
+    transition: 0.2s ease;
+}
+
+.profile-dropdown p:hover {
+    background: #f0f7f2;
+    font-weight: 600;
+}
+
+/* DARK MODE */
+.dark-mode {
+    background: #1a1a1a !important;
+    color: white !important;
+}
+
+.dark-mode .navbar,
+.dark-mode .profile-card,
+.dark-mode .overview-card,
+.dark-mode .quiz-card,
+.dark-mode .login-card,
+.dark-mode .info-card {
+    background: #2b2b2b !important;
+    color: white !important;
+}

@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innovative Learning - Learn</title>
-    <link rel="stylesheet" href="Design.css">
+    <title>Innovative Learning - Quiz</title>
+
+    <link rel="stylesheet" href="../CSS/Design.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
-<body class="learn-page"> 
+
+<body class="quiz-page"> 
+
+    <!-- NAVBAR -->
     <header class="navbar">
         <div class="nav-container">
+
             <div class="brand">
                 <img src="../Pictures/Logo/Logo.png" alt="Logo" class="main-logo">
                 <div class="brand-text">
@@ -36,7 +42,7 @@
                     <a href="javascript:void(0)" class="action-item" onclick="openModal('subModal')">
                         <i class="fa-solid fa-crown"></i> Subscription
                     </a>
-                    
+
                     <a href="#" class="action-item">
                         <i class="fa-regular fa-circle-question"></i> Help
                     </a>
@@ -56,6 +62,7 @@
         </div>
     </header>
 
+    <!-- MODALS -->
     <div id="subModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('subModal')">&times;</span>
@@ -74,70 +81,60 @@
         </div>
     </div>
 
+    <!-- MAIN -->
     <main class="hero-section">
 
-        <div class="welcome-badge">✦ Study Modules</div>
-        <h1 class="hero-title">Start Your Journey</h1>
-        <p class="hero-subtitle">Choose from our interactive lessons.</p>
+        <div class="welcome-badge">✦ Knowledge Check</div>
+        <h1 class="hero-title">Test Your Skills</h1>
+        <p class="hero-subtitle">Choose a quiz and answer the questions.</p>
 
-        <!-- LESSON CARDS -->
-        <section class="info-cards">
+        <!-- QUIZ SELECTOR -->
+        <div class="quiz-selector">
 
-            <div class="info-card">
-                <div class="icon-circle dark">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-                <div class="card-content">
-                    <h4>HTML</h4>
-                    <p>Learn HTML Language</p>
-                    <button class="btn-quiz-outline" onclick="startLesson('HTML')">Start</button>
-                </div>
+            <div class="quiz-option" onclick="selectQuiz(this, 'HTML')">
+                <i class="fa-solid fa-code"></i>
+                <h4>HTML</h4>
+                <p>Structure of web pages</p>
             </div>
 
-            <div class="info-card">
-                <div class="icon-circle orange">
-                    <i class="fa-solid fa-paintbrush"></i>
-                </div>
-                <div class="card-content">
-                    <h4>CSS</h4>
-                    <p>Learn CSS Language</p>
-                    <button class="btn-quiz-outline" onclick="startLesson('CSS')">Start</button>
-                </div>
+            <div class="quiz-option" onclick="selectQuiz(this, 'CSS')">
+                <i class="fa-solid fa-paintbrush"></i>
+                <h4>CSS</h4>
+                <p>Design and layout</p>
             </div>
 
-            <div class="info-card">
-                <div class="icon-circle green">
-                    <i class="fa-solid fa-bolt"></i>
-                </div>
-                <div class="card-content">
-                    <h4>Java Script</h4>
-                    <p>Learn Java Script Language</p>
-                    <button class="btn-quiz-outline" onclick="startLesson('JS')">Start</button>
-                </div>
+            <div class="quiz-option" onclick="selectQuiz(this, 'JS')">
+                <i class="fa-solid fa-bolt"></i>
+                <h4>JavaScript</h4>
+                <p>Interactivity</p>
             </div>
 
-        </section>
-        <section id="lessonContent" class="info-card" style="margin: 50px auto; display:none;">
-            
-            <div class="card-content">
-                <h3 id="lessonTitle">Lesson Title</h3>
-                <p id="lessonText">Lesson content will appear here...</p>
+        </div>
 
-                <br>
+        <!-- QUIZ CARD -->
+        <div class="quiz-card">
 
-                <!-- NAVIGATION BUTTONS (DITO ILAGAY) -->
-                <button class="btn-quiz-outline" onclick="prevLesson()">← Previous</button>
-                <button class="btn-quiz-outline" onclick="nextLesson()">Next →</button>
-
-                <br><br>
-
-                <!-- COMPLETE BUTTON -->
-                <button class="btn-start" onclick="completeLesson()">Mark as Complete</button>
+            <div class="quiz-progress" id="quizProgress">
+                Select a quiz to begin
             </div>
 
-        </section>
+            <h2 id="quizQuestion">
+                Click a quiz above to start
+            </h2>
+
+            <div id="quizChoices"></div>
+
+            <!-- 🔥 IMPORTANT: ID MUST MATCH JS -->
+            <button class="btn-next" id="nextBtn" onclick="nextQuestion()" disabled>
+                Next →
+            </button>
+
+        </div>
 
     </main>
-    <script src="Security.js"></script>
+
+    <!-- 🔥 IMPORTANT: LOAD AFTER HTML -->
+    <script src="../JavaScript/Security.js"></script>
+
 </body>
 </html>

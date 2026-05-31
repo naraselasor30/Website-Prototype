@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Innovative Learning - Auth</title>
-    <link rel="stylesheet" href="Design.css">
+    <link rel="stylesheet" href="../CSS/Design.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -113,9 +113,9 @@
                         <input type="checkbox" id="termsCheck">
                         <label for="termsCheck">
                             I agree to the 
-                            <a href="javascript:void(0)" onclick="openLegal('Terms.json')">Terms of Service</a> 
+                            <a href="javascript:void(0)" onclick="openLegal('../Data/TermsAndPrivacy/Terms.json')">Terms of Service</a> 
                             and 
-                            <a href="javascript:void(0)" onclick="openLegal('Privacy.json')">Privacy Policy</a>
+                            <a href="javascript:void(0)" onclick="openLegal('../Data/TermsAndPrivacy/Privacy.json')">Privacy Policy</a>
                         </label>
                     </div>
 
@@ -128,7 +128,7 @@
         </div>
     </main>
 
-    <script src="Security.js"></script>
+    <script src="../JavaScript/Security.js"></script>
     <script>
         function showAuth(type) {
             const loginSec = document.getElementById('loginSection');

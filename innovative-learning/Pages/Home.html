@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Innovative Learning - Home</title>
-        <link rel="stylesheet" href="Design.css">
+        <link rel="stylesheet" href="../CSS/Design.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     </head>
@@ -46,11 +46,18 @@
                         </a>
                     </div>
 
-                    <a href="Login.html" id="authLink" class="auth-wrapper">
-                        <button class="btn-signin" id="authButton">
-                            <i class="fa-solid fa-user"></i> Sign In
+                    <div class="profile-menu-wrapper" id="authLink">
+                        <button class="btn-signin" id="authButton" onclick="toggleProfileMenu()">
+                            <i class="fa-solid fa-circle-user"></i> Profile
                         </button>
-                    </a>
+
+                        <div id="profileDropdown" class="profile-dropdown">
+                            <p onclick="openProfilePage()">👤 Account Info</p>
+                            <p onclick="openSettingsModal()">⚙ Settings</p>
+                            <p onclick="toggleDarkMode()">🌙 Dark / Light Mode</p>
+                            <p onclick="logout()">🚪 Log Out</p>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -122,6 +129,6 @@
 
             </section>
         </main>
-        <script src="Security.js"></script>
+        <script src="../JavaScript/Security.js"></script>
     </body>
     </html>

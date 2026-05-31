@@ -149,26 +149,39 @@ function handleRegister() {
         return;
     }
 
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-
-    const exists = users.find(user => user.username === username);
-
-    if (exists) {
-        alert("Username already exists!");
-        return;
-    }
-
-    // 🔥 SAVE FULL DATA
-    users.push({
+fetch("http://127.0.0.1:5000/register", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
         firstName,
         lastName,
         username,
         password
-    });
+    })
+})
+.then(res => res.json())
+.then(data => {
 
-    localStorage.setItem("users", JSON.stringify(users));
+    if (data.success) {
 
-    alert("Account created! You can now login.");
+        alert("Account created successfully!");
+
+    } else {
+
+        alert(data.message);
+
+    }
+
+})
+.catch(error => {
+
+    console.error(error);
+
+    alert("Cannot connect to server.");
+
+});
 }
 
 async function openLegal(file) {
@@ -194,9 +207,9 @@ let currentLessonIndex = 0;
 
 // Load ALL JSON files
 Promise.all([
-    fetch('HTMLCourse.json').then(res => res.json()),
-    fetch('CSSCourse.json').then(res => res.json()),
-    fetch('JSCourse.json').then(res => res.json())
+    fetch('../Data/Lesson/HTMLCourse.json').then(res => res.json()),
+    fetch('../Data/Lesson/CSSCourse.json').then(res => res.json()),
+    fetch('../Data/Lesson/JSCourse.json').then(res => res.json())
 ])
 .then(([htmlData, cssData, jsData]) => {
     courseData = {
@@ -285,7 +298,7 @@ let answered = false;
 // ================= LOAD QUIZ DATA =================
 async function loadQuizData() {
     try {
-        const res = await fetch('QuizData.json');
+        const res = await fetch('../Data/Quiz/quizData.json');
         quizData = await res.json();
     } catch (error) {
         console.error("Error loading quiz data:", error);
@@ -414,3 +427,50 @@ function selectQuiz(element, topic) {
     element.classList.add('active');
     startQuiz(topic);
 }
+
+// ================= PROFILE DROPDOWN =================
+
+function toggleProfileMenu() {
+    const menu = document.getElementById("profileDropdown");
+
+    if (!menu) return;
+
+    menu.style.display =
+        menu.style.display === "block" ? "none" : "block";
+}
+
+// Close dropdown when clicking outside
+document.addEventListener("click", function(event) {
+    const wrapper = document.querySelector(".profile-menu-wrapper");
+
+    if (wrapper && !wrapper.contains(event.target)) {
+        const menu = document.getElementById("profileDropdown");
+        if (menu) menu.style.display = "none";
+    }
+});
+
+function openProfilePage() {
+    window.location.href = "Profile.html";
+}
+
+// ================= DARK MODE =================
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+
+    // Save mode
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+}
+
+// Load saved theme
+window.addEventListener("load", () => {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+});
