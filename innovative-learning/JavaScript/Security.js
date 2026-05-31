@@ -44,28 +44,58 @@ document.querySelectorAll('.toggle-password').forEach(icon => {
 });
 
 // Function para sa Login (ilalagay sa onclick ng button sa Login.html)
-function handleLogin() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+async function handleLogin() {
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const username =
+        document.getElementById("username").value;
 
-    const foundUser = users.find(user =>
-        user.username === username && user.password === password
-    );
+    const password =
+        document.getElementById("password").value;
 
-    if (foundUser) {
-        localStorage.setItem('isLoggedIn', 'true');
+    try {
 
-        // 🔥 SAVE FULL USER DATA
-        localStorage.setItem("currentUser", JSON.stringify(foundUser));
+        const response = await fetch(
+            "http://127.0.0.1:5000/login",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username,
+                    password
+                })
+            }
+        );
 
-        // Optional fallback
-        localStorage.setItem('username', foundUser.username);
+        const data = await response.json();
 
-        window.location.href = "Home.html";
-    } else {
-        alert("Invalid username or password!");
+        if (data.success) {
+
+            localStorage.setItem(
+                "currentUser",
+                JSON.stringify(data.user)
+            );
+
+            localStorage.setItem(
+                "isLoggedIn",
+                "true"
+            );
+
+            window.location.href = "Home.html";
+
+        } else {
+
+            alert(data.message);
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Cannot connect to server.");
+
     }
 }
 
@@ -106,7 +136,7 @@ function logout() {
     localStorage.removeItem('username');
     localStorage.removeItem('currentUser');
 
-    window.location.href = "Home.html";
+    window.location.href = "../Pages/Home.html";
 }
 
 function handleRegister() {
@@ -197,6 +227,45 @@ async function openLegal(file) {
 function closeLegalModal() {
     document.getElementById("legalModal").style.display = "none";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const authLink = document.getElementById("authLink");
+
+    if (!authLink) return;
+
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    if (isLoggedIn === "true") {
+
+        authLink.innerHTML = `
+            <div class="profile-menu-wrapper">
+                <button class="btn-signin" onclick="toggleProfileMenu()">
+                    <i class="fa-solid fa-circle-user"></i> Profile
+                </button>
+
+                <div id="profileDropdown" class="profile-dropdown">
+                    <p onclick="openProfilePage()">👤 Account Info</p>
+                    <p onclick="openSettingsModal()">⚙ Settings</p>
+                    <p onclick="toggleDarkMode()">🌙 Dark / Light Mode</p>
+                    <p onclick="logout()">🚪 Log Out</p>
+                </div>
+            </div>
+        `;
+
+    } else {
+
+        authLink.innerHTML = `
+            <a href="Login.html">
+                <button class="btn-signin">
+                    <i class="fa-solid fa-user"></i> Sign In
+                </button>
+            </a>
+        `;
+    }
+
+});
+
 
 // ================= LESSON SYSTEM (JSON-BASED) =================
 
