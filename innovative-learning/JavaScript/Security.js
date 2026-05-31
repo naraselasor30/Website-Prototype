@@ -100,27 +100,6 @@ async function handleLogin() {
 }
 
 // Function para i-check kung naka-login na
-function checkAuthStatus() {
-    const authButton = document.getElementById('authButton');
-    const authLink = document.getElementById('authLink');
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-
-    if (isLoggedIn === 'true') {
-        if (authButton) {
-            // Papalitan ang text sa loob ng button
-            authButton.innerHTML = '<i class="fa-solid fa-circle-user"></i> Profile';
-        }
-        if (authLink) {
-            // Papalitan ang link para sa Profile page na ang punta
-            authLink.href = "Profile.html";
-        }
-    }
-}
-
-// Patakbuhin tuwing mag-load ang page
-window.addEventListener("load", () => {
-    checkAuthStatus();
-});
 
 
 function loadProfile() {
@@ -136,7 +115,7 @@ function logout() {
     localStorage.removeItem('username');
     localStorage.removeItem('currentUser');
 
-    window.location.href = "../Pages/Home.html";
+    window.location.href = "Home.html";
 }
 
 function handleRegister() {
@@ -519,7 +498,7 @@ document.addEventListener("click", function(event) {
 });
 
 function openProfilePage() {
-    window.location.href = "Profile.html";
+    window.location.href = "../Pages/Profile.html";
 }
 
 // ================= DARK MODE =================
