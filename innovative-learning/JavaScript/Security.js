@@ -323,18 +323,34 @@ function prevLesson() {
 }
 
 // Complete lesson (progress system)
-function completeLesson() {
-    let progress = localStorage.getItem('progress') || 0;
+async function completeLesson() {
 
-    progress = parseInt(progress) + 10;
+    const user =
+        JSON.parse(localStorage.getItem("currentUser"));
 
-    if (progress > 100) progress = 100;
+    const lessonName =
+        document.getElementById("lessonTitle").innerText;
 
-    localStorage.setItem('progress', progress);
+    const response = await fetch(
+        "http://127.0.0.1:5000/complete_lesson",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                userId: user.id,
+                lessonName: lessonName
+            })
+        }
+    );
 
-    alert("Lesson completed! 🎉 Progress updated.");
+    const data = await response.json();
+
+    if (data.success) {
+        alert("Lesson completed!");
+    }
 }
-
 // ================= MODERN QUIZ SYSTEM (THESIS VERSION) =================
 
 let quizData = {};

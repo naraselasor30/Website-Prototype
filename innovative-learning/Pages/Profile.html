@@ -179,7 +179,30 @@
             document.querySelector(".xp-box p").innerText =
                 "Keep going, " + user.username + "! You're on a 5-day streak";
         }
+
+        async function loadProgress() {
+
+            const user =
+                JSON.parse(localStorage.getItem("currentUser"));
+
+            const response =
+                await fetch(
+                    `http://127.0.0.1:5000/progress/${user.id}`
+                );
+
+            const data =
+                await response.json();  
+
+            document.getElementById(
+                "progressText"
+            ).innerText =
+                data.completedLessons + " Lessons Completed";
+        }
+
+        loadProgress();
+
     </script>
+
 
     <div id="settingsModal" class="modal">
         <div class="modal-content">

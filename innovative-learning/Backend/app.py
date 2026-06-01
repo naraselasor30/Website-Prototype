@@ -99,5 +99,50 @@ def login():
     })
     
 
+@app.route("/complete_lesson", methods=["POST"])
+def complete_lesson():
+
+    data = request.get_json()
+
+    user_id = data["userId"]
+    lesson_name = data["lessonName"]
+
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        INSERT INTO lesson_progress
+        (user_id, lesson_name)
+        VALUES (?, ?)
+    """, (user_id, lesson_name))
+
+    conn.commit()
+    conn.close()
+
+    return jsonify({
+        "success": True
+    })
+
+@app.route("/progress/<int:user_id>")
+def get_progress(user_id):
+
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM lesson_progress
+        WHERE user_id = ?
+    """, (user_id,))
+
+    completed = cursor.fetchone()[0]
+
+    conn.close()
+
+    return jsonify({
+        "completedLessons": completed
+    })
+
+
 if __name__ == "__main__":
     app.run(debug=True)
