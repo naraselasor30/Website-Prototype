@@ -1,0 +1,12 @@
+{
+    "title": "Accessibility Basics",
+    "description": [
+        "Accessibility refers to designing websites so that they can be used by everyone, including individuals with disabilities.",
+        "Basic accessibility practices include adding alternative text to images, using labels for form fields, maintaining proper heading structures, and utilizing semantic HTML elements.",
+        "Following accessibility guidelines improves usability and ensures that all users can access and understand webpage content effectively."
+    ],
+    "example": {
+        "code": "<img src=\"logo.png\" alt=\"Company Logo\">\n\n<label for=\"email\">Email Address:</label>\n<input type=\"email\" id=\"email\">",
+        "output": "Screen readers can describe the image and properly identify the email field for users with disabilities."
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "title": "Positioning Elements",
+    "description": [
+        "Positioning is used to control where elements appear on the page using top, left, right, and bottom."
+    ],
+    "example": {
+        "code": ".box {\n    position: relative;\n    top: 20px;\n    left: 30px;\n}",
+        "output": "The box moves slightly down and to the right from its original position."
+    }
+}

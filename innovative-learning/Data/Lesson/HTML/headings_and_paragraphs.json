@@ -1,0 +1,13 @@
+{
+    "title": "Headings and Paragraphs",
+    "description": [
+        "Headings and paragraphs are used to organize and present text content on a webpage.",
+        "Headings range from <h1> to <h6>, with <h1> being the largest and most important heading.",
+        "Paragraphs are created using the <p> tag and are used to display blocks of text.",
+        "Proper use of headings and paragraphs improves readability and helps users easily understand the structure and purpose of the content on a webpage."
+    ],
+    "example": {
+        "code": "<h1>Main Heading</h1>\n<h2>Sub Heading</h2>\n<p>This is a paragraph describing the topic.</p>",
+        "output": "Main Heading\nSub Heading\nThis is a paragraph describing the topic."
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "title": "CSS Grid Basics",
+    "description": [
+        "CSS Grid is used to create rows and columns for layout design, making complex layouts easier to build."
+    ],
+    "example": {
+        "code": ".container {\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;\n    gap: 10px;\n}",
+        "output": "Three boxes are displayed in a row with equal spacing between them."
+    }
+}

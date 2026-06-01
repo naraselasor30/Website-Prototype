@@ -1,0 +1,10 @@
+{
+    "title": "Conditional Statements",
+    "description": [
+        "Conditional statements allow the program to make decisions based on conditions."
+    ],
+    "example": {
+        "code": "let age = 18;\n\nif (age >= 18) {\n    console.log(\"Adult\");\n} else {\n    console.log(\"Minor\");\n}",
+        "output": "Adult"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "title": "DOM Introduction",
+    "description": [
+        "DOM (Document Object Model) allows JavaScript to access and change HTML elements."
+    ],
+    "example": {
+        "code": "<p id=\"text\">Hello</p>\n\n<script>\ndocument.getElementById(\"text\").innerHTML = \"Hi JavaScript\";\n</script>",
+        "output": "Hi JavaScript (on the webpage)"
+    }
+}

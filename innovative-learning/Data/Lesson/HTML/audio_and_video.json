@@ -1,0 +1,12 @@
+{
+    "title": "Audio and Video",
+    "description": [
+        "HTML allows developers to add audio and video content directly to webpages using the <audio> and <video> tags.",
+        "These elements provide built-in controls that allow users to play, pause, and adjust media playback.",
+        "Audio and video enhance the user experience by providing multimedia content such as music, tutorials, presentations, and demonstrations without requiring additional software."
+    ],
+    "example": {
+        "code": "<audio controls>\n    <source src=\"music.mp3\">\n</audio>\n\n<video controls width=\"400\">\n    <source src=\"video.mp4\">\n</video>",
+        "output": "An audio player and a video player displayed on the webpage."
+    }
+}

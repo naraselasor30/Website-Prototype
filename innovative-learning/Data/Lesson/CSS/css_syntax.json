@@ -1,0 +1,12 @@
+{
+    "title": "CSS Syntax",
+    "description": [
+        "CSS syntax is the rule format used to style elements.",
+        "It has a selector (the element you want to style) and a declaration block (the style rules inside { }).",
+        "Each rule uses a property and a value."
+    ],
+    "example": {
+        "code": "p {\n    color: red;\n    font-size: 18px;\n}",
+        "output": "All paragraph text becomes red and size 18px."
+    }
+}

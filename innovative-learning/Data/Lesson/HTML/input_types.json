@@ -1,0 +1,13 @@
+{
+    "title": "Input Types",
+    "description": [
+        "Input types define the kind of information users can enter into a form.",
+        "HTML provides various input types such as text, email, password, number, date, and many others.",
+        "Each type is designed to collect specific information and improve data accuracy.",
+        "Using appropriate input types helps create user-friendly forms and ensures that users provide the correct type of data."
+    ],
+    "example": {
+        "code": "<input type=\"text\" placeholder=\"Enter Name\">\n\n<input type=\"email\" placeholder=\"Enter Email\">\n\n<input type=\"password\" placeholder=\"Enter Password\">\n\n<input type=\"date\">",
+        "output": "Name textbox\nEmail textbox\nPassword field\nDate picker"
+    }
+}

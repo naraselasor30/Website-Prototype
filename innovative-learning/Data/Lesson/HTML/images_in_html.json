@@ -1,0 +1,12 @@
+{
+    "title": "Images in HTML",
+    "description": [
+        "Images are used to add visual content to a webpage and improve user engagement.",
+        "The <img> tag is used to display images, while the src attribute specifies the image file location and the alt attribute provides a text description of the image.",
+        "Images help communicate information more effectively, enhance the appearance of a website, and create a better user experience."
+    ],
+    "example": {
+        "code": "<img src=\"cat.jpg\" alt=\"Cute Cat\" width=\"300\">",
+        "output": "Displays an image named 'cat.jpg' with a width of 300 pixels."
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "title": "Embedding Content",
+    "description": [
+        "Embedding content allows developers to display external resources such as videos, maps, documents, and websites directly within a webpage.",
+        "This is commonly done using the <iframe> element.",
+        "Embedded content enhances webpages by integrating useful resources without requiring users to leave the site, creating a more convenient and interactive browsing experience."
+    ],
+    "example": {
+        "code": "<iframe\nsrc=\"https://www.youtube.com/embed/dQw4w9WgXcQ\"\nwidth=\"560\"\nheight=\"315\">\n</iframe>",
+        "output": "A YouTube video displayed directly on the webpage."
+    }
+}

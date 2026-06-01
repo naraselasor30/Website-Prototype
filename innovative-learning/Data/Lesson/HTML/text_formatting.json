@@ -1,0 +1,12 @@
+{
+    "title": "Text Formatting",
+    "description": [
+        "Text formatting allows developers to emphasize or modify the appearance of text within a webpage.",
+        "HTML provides several tags such as <b> for bold text, <i> for italic text, <u> for underlined text, <strong> for important text, and <em> for emphasized text.",
+        "These formatting options help highlight important information, improve content presentation, and make webpages more visually appealing and easier to read."
+    ],
+    "example": {
+        "code": "<p><b>Bold Text</b></p>\n<p><i>Italic Text</i></p>\n<p><u>Underlined Text</u></p>\n<p><strong>Important Text</strong></p>\n<p><em>Emphasized Text</em></p>",
+        "output": "Bold Text\nItalic Text\nUnderlined Text\nImportant Text\nEmphasized Text"
+    }
+}

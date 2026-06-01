@@ -1,0 +1,10 @@
+{
+    "title": "Event Handling",
+    "description": [
+        "Event handling allows JavaScript to respond to user actions like clicks."
+    ],
+    "example": {
+        "code": "<button onclick=\"sayHello()\">Click Me</button>\n\n<script>\nfunction sayHello() {\n    console.log(\"Button clicked!\");\n}\n</script>",
+        "output": "Button clicked! (in console when clicked)"
+    }
+}

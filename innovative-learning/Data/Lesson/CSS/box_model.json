@@ -1,0 +1,11 @@
+{
+    "title": "Box Model",
+    "description": [
+        "The box model explains how elements are structured: content, padding, border, and margin.",
+        "It affects spacing and size of elements."
+    ],
+    "example": {
+        "code": "div {\n    width: 200px;\n    padding: 20px;\n    border: 2px solid black;\n    margin: 10px;\n}",
+        "output": "A box appears with a fixed width, space inside (padding), a black border, and space outside (margin)."
+    }
+}

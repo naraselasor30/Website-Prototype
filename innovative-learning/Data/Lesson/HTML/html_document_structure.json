@@ -1,0 +1,13 @@
+{
+    "title": "HTML Document Structure",
+    "description": [
+        "Every HTML document follows a standard structure that helps browsers understand how to display the content correctly.",
+        "The structure includes the <!DOCTYPE html> declaration, the <html> element, the <head> section, and the <body> section.",
+        "The <head> contains information about the webpage such as the title, while the <body> contains all the visible content that users see.",
+        "Understanding this structure is important because it serves as the framework of every HTML webpage."
+    ],
+    "example": {
+        "code": "<!DOCTYPE html>\n<html>\n<head>\n    <title>My Portfolio</title>\n</head>\n<body>\n    <h1>Kley's Portfolio</h1>\n</body>\n</html>",
+        "output": "A webpage with the title 'My Portfolio' and a heading that says 'Kley's Portfolio'."
+    }
+}

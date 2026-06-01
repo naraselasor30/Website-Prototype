@@ -1,0 +1,12 @@
+{
+    "title": "HTML Entities",
+    "description": [
+        "HTML entities are special codes used to display reserved characters and symbols that may otherwise be interpreted as HTML code.",
+        "Examples include displaying angle brackets, ampersands, copyright symbols, and other special characters.",
+        "Using HTML entities ensures that these symbols are displayed correctly on a webpage and prevents conflicts with HTML syntax."
+    ],
+    "example": {
+        "code": "<p>&lt;html&gt;</p>\n<p>&copy; 2026</p>\n<p>Tom &amp; Jerry</p>",
+        "output": "<html>\n© 2026\nTom & Jerry"
+    }
+}

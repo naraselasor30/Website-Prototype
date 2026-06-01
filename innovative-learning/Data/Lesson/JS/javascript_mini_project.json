@@ -1,0 +1,11 @@
+{
+    "title": "JavaScript Mini Project",
+    "description": [
+        "A mini project combines all learned concepts to create a simple interactive application like a calculator, to-do list, or simple quiz.",
+        "This lesson demonstrates a simple Greeting App that accepts user input and displays a personalized message."
+    ],
+    "example": {
+        "code": "<input id=\"name\" placeholder=\"Enter name\">\n<button onclick=\"greet()\">Greet</button>\n\n<p id=\"output\"></p>\n\n<script>\nfunction greet() {\n    let name = document.getElementById(\"name\").value;\n    document.getElementById(\"output\").innerHTML = \"Hello \" + name;\n}\n</script>",
+        "output": "User types: Kley\nPage shows: Hello Kley"
+    }
+}

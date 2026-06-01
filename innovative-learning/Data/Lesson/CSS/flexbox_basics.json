@@ -1,0 +1,10 @@
+{
+    "title": "Flexbox Basics",
+    "description": [
+        "Flexbox is used to align items easily in a row or column and control spacing automatically."
+    ],
+    "example": {
+        "code": ".container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}",
+        "output": "Items inside the container are centered horizontally and vertically."
+    }
+}

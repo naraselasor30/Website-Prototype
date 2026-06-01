@@ -1,4 +1,11 @@
 {
     "title": "Introduction to CSS",
-    "description": "TO FOLLOW"
+    "description": [
+        "CSS (Cascading Style Sheets) is used to style HTML elements and control how a webpage looks.",
+        "It handles colors, layout, spacing, fonts, and overall design, making websites more visually attractive and easier to read."
+    ],
+    "example": {
+        "code": "h1 {\n    color: blue;\n}",
+        "output": "A blue-colored heading."
+    }
 }

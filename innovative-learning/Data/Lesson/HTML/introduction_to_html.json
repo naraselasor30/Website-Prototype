@@ -1,4 +1,13 @@
 {
     "title": "Introduction to HTML",
-    "description": "TO FOLLOW"
+    "description": [
+        "HTML (HyperText Markup Language) is the standard language used to create and structure web pages.",
+        "It serves as the foundation of every website by organizing content such as text, images, videos, links, and forms.",
+        "HTML uses tags and elements to tell the browser how content should appear on the screen.",
+        "Learning HTML is the first step in web development because it provides the basic structure that other technologies like CSS and JavaScript build upon."
+    ],
+    "example": {
+        "code": "<!DOCTYPE html>\n<html>\n<head>\n    <title>My First Web Page</title>\n</head>\n<body>\n    <h1>Welcome to My Website</h1>\n    <p>This is my first HTML page.</p>\n</body>\n</html>",
+        "output": "Welcome to My Website\nThis is my first HTML page."
+    }
 }

@@ -1,0 +1,13 @@
+{
+    "title": "Lists in HTML",
+    "description": [
+        "Lists are used to display related information in an organized format.",
+        "HTML provides ordered lists (<ol>) for numbered items and unordered lists (<ul>) for bulleted items.",
+        "Each item within a list is defined using the <li> tag.",
+        "Lists are commonly used for displaying steps, instructions, menus, features, or any information that needs to be grouped together in a clear and structured manner."
+    ],
+    "example": {
+        "code": "<h3>Programming Languages</h3>\n<ol>\n    <li>HTML</li>\n    <li>CSS</li>\n    <li>JavaScript</li>\n</ol>\n<ul>\n    <li>Python</li>\n    <li>Java</li>\n    <li>C#</li>\n</ul>",
+        "output": "1. HTML\n2. CSS\n3. JavaScript\n\n• Python\n• Java\n• C#"
+    }
+}

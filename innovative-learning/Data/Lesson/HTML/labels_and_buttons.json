@@ -1,0 +1,13 @@
+{
+    "title": "Labels and Buttons",
+    "description": [
+        "Labels and buttons are important components of web forms.",
+        "Labels provide descriptions for input fields, helping users understand what information is required.",
+        "Buttons allow users to perform actions such as submitting a form, resetting data, or triggering specific functions.",
+        "Proper use of labels and buttons improves usability, accessibility, and the overall user experience of a website."
+    ],
+    "example": {
+        "code": "<label for=\"username\">Username:</label>\n\n<input type=\"text\" id=\"username\">\n\n<button>Login</button>",
+        "output": "Username: [Textbox]\n[Login Button]"
+    }
+}

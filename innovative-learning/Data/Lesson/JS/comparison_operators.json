@@ -1,0 +1,10 @@
+{
+    "title": "Comparison Operators",
+    "description": [
+        "Comparison operators compare two values and return true or false."
+    ],
+    "example": {
+        "code": "console.log(5 > 3);\nconsole.log(5 === 5);",
+        "output": "true\ntrue"
+    }
+}

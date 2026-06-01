@@ -1,0 +1,10 @@
+{
+    "title": "Margins and Padding",
+    "description": [
+        "Margins create space outside an element, while padding creates space inside between content and border."
+    ],
+    "example": {
+        "code": "div {\n    margin: 20px;\n    padding: 15px;\n}",
+        "output": "The box has space outside and inside, making it look less crowded."
+    }
+}

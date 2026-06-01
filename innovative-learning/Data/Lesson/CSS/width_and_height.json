@@ -1,0 +1,10 @@
+{
+    "title": "Width and Height",
+    "description": [
+        "Width and height control the size of elements like images, boxes, and sections."
+    ],
+    "example": {
+        "code": "img {\n    width: 300px;\n    height: 200px;\n}",
+        "output": "Image becomes resized to 300px wide and 200px tall."
+    }
+}

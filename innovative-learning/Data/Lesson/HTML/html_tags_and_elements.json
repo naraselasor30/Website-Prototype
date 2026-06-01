@@ -1,0 +1,14 @@
+{
+    "title": "HTML Tags and Elements",
+    "description": [
+        "HTML tags and elements are the building blocks of a webpage.",
+        "Tags are enclosed within angle brackets and are used to define different types of content.",
+        "Most HTML elements consist of an opening tag, content, and a closing tag.",
+        "These elements tell the browser how specific content should be displayed.",
+        "By using various tags, developers can create headings, paragraphs, images, links, and many other webpage components."
+    ],
+    "example": {
+        "code": "<p>I am learning HTML.</p>",
+        "output": "I am learning HTML."
+    }
+}

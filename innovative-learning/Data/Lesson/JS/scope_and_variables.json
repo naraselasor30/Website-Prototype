@@ -1,0 +1,11 @@
+{
+    "title": "Scope and Variables",
+    "description": [
+        "Scope defines where variables can be accessed.",
+        "Variables inside a function cannot be used outside it."
+    ],
+    "example": {
+        "code": "function test() {\n    let x = 10;\n    console.log(x);\n}\n\ntest();",
+        "output": "10"
+    }
+}

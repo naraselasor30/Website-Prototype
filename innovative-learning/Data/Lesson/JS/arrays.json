@@ -1,0 +1,10 @@
+{
+    "title": "Arrays",
+    "description": [
+        "Arrays store multiple values in one variable."
+    ],
+    "example": {
+        "code": "let fruits = [\"Apple\", \"Banana\", \"Mango\"];\nconsole.log(fruits[1]);",
+        "output": "Banana"
+    }
+}

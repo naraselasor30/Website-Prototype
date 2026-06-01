@@ -1,0 +1,11 @@
+{
+    "title": "Selectors",
+    "description": [
+        "Selectors are used to target HTML elements to apply styles.",
+        "You can select by tag name, class, or ID depending on how specific you want the styling to be."
+    ],
+    "example": {
+        "code": "h1 {\n    color: green;\n}\n\n.title {\n    color: blue;\n}\n\n#header {\n    background-color: gray;\n}",
+        "output": "All h1 text becomes green.\nElements with class 'title' become blue.\nElement with ID 'header' gets a gray background."
+    }
+}

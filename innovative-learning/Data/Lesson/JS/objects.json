@@ -1,0 +1,10 @@
+{
+    "title": "Objects",
+    "description": [
+        "Objects store data in key-value pairs."
+    ],
+    "example": {
+        "code": "let student = {\n    name: \"Kley\",\n    age: 20\n};\n\nconsole.log(student.name);",
+        "output": "Kley"
+    }
+}

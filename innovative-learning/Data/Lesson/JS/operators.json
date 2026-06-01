@@ -1,0 +1,10 @@
+{
+    "title": "Operators",
+    "description": [
+        "Operators are symbols used to perform calculations or actions like addition, subtraction, or comparison."
+    ],
+    "example": {
+        "code": "let sum = 5 + 3;\nconsole.log(sum);",
+        "output": "8"
+    }
+}

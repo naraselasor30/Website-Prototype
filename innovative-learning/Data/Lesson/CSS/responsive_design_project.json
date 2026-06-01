@@ -1,0 +1,11 @@
+{
+    "title": "Responsive Design Project",
+    "description": [
+        "Responsive design makes websites adjust automatically to different screen sizes like phones, tablets, and desktops.",
+        "It ensures that content looks good and is easy to use on any device."
+    ],
+    "example": {
+        "code": ".container {\n    width: 100%;\n    max-width: 600px;\n}\n\n@media (max-width: 600px) {\n    .container {\n        background-color: lightblue;\n    }\n}",
+        "output": "On large screens: normal layout.\nOn small screens: container turns light blue and adjusts size."
+    }
+}

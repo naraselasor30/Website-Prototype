@@ -1,0 +1,10 @@
+{
+    "title": "Colors and Backgrounds",
+    "description": [
+        "Colors and backgrounds are used to change how elements look, such as text color or background color of a page or section."
+    ],
+    "example": {
+        "code": "body {\n    background-color: lightblue;\n}\n\nh1 {\n    color: darkblue;\n}",
+        "output": "Whole page has a light blue background.\nHeadings appear dark blue."
+    }
+}

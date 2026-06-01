@@ -1,0 +1,10 @@
+{
+    "title": "Loops Basics",
+    "description": [
+        "Loops are used to repeat actions multiple times."
+    ],
+    "example": {
+        "code": "for (let i = 1; i <= 3; i++) {\n    console.log(i);\n}",
+        "output": "1\n2\n3"
+    }
+}

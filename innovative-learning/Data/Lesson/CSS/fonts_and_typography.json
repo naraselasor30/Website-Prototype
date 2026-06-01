@@ -1,0 +1,10 @@
+{
+    "title": "Fonts and Typography",
+    "description": [
+        "Fonts and typography control the style and readability of text using font type, size, and weight."
+    ],
+    "example": {
+        "code": "body {\n    font-family: Arial;\n    font-size: 18px;\n    font-weight: bold;\n}",
+        "output": "All text appears in Arial font, bigger size, and bold."
+    }
+}

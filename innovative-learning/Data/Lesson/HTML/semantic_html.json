@@ -1,0 +1,13 @@
+{
+    "title": "Semantic HTML",
+    "description": [
+        "Semantic HTML uses meaningful tags that clearly describe the purpose of different sections of a webpage.",
+        "Examples include <header>, <nav>, <main>, <section>, and <footer>.",
+        "These tags help browsers, search engines, and developers better understand the structure of the content.",
+        "Semantic HTML also improves accessibility and search engine optimization (SEO), making websites easier to navigate and maintain."
+    ],
+    "example": {
+        "code": "<header>\n    <h1>My Website</h1>\n</header>\n\n<nav>\n    Home | About | Contact\n</nav>\n\n<main>\n    <p>Main content goes here.</p>\n</main>\n\n<footer>\n    Copyright 2026\n</footer>",
+        "output": "A webpage with a header, navigation menu, main content area, and footer."
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "title": "Display Property",
+    "description": [
+        "The display property controls how elements behave on the page, such as block (full width) or inline (same line)."
+    ],
+    "example": {
+        "code": "span {\n    display: block;\n}",
+        "output": "Span elements appear on a new line like a block element."
+    }
+}

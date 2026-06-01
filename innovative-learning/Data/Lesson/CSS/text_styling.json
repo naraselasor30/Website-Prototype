@@ -1,0 +1,10 @@
+{
+    "title": "Text Styling",
+    "description": [
+        "Text styling is used to change how text appears, including alignment, decoration, and case transformation."
+    ],
+    "example": {
+        "code": "p {\n    text-align: center;\n    text-decoration: underline;\n    text-transform: uppercase;\n}",
+        "output": "Paragraph text is centered, underlined, and written in ALL CAPS."
+    }
+}

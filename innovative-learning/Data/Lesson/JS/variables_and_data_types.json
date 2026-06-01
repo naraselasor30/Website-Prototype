@@ -1,0 +1,11 @@
+{
+    "title": "Variables and Data Types",
+    "description": [
+        "Variables are used to store data like numbers, text, or values that can change.",
+        "JavaScript has different data types such as string, number, and boolean."
+    ],
+    "example": {
+        "code": "let name = \"Kley\";\nlet age = 20;\n\nconsole.log(name);\nconsole.log(age);",
+        "output": "Kley\n20"
+    }
+}

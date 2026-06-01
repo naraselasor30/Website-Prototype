@@ -1,0 +1,10 @@
+{
+    "title": "User Input",
+    "description": [
+        "User input allows the program to receive data from the user using prompts."
+    ],
+    "example": {
+        "code": "let name = prompt(\"Enter your name:\");\nconsole.log(\"Hello \" + name);",
+        "output": "If user enters: Kley\nHello Kley"
+    }
+}

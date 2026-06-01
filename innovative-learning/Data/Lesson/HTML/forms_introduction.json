@@ -1,0 +1,13 @@
+{
+    "title": "Forms Introduction",
+    "description": [
+        "Forms are interactive elements that allow websites to collect information from users.",
+        "They are commonly used for registration pages, login systems, surveys, feedback forms, and contact pages.",
+        "The <form> tag acts as a container for form controls such as text fields, buttons, checkboxes, and dropdown menus.",
+        "Forms play an important role in web applications because they enable communication between users and websites."
+    ],
+    "example": {
+        "code": "<form>\n    Name:\n    <input type=\"text\">\n</form>",
+        "output": "A textbox where users can type their name."
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "title": "Understanding Web Pages",
+    "description": [
+        "A web page is a digital document that is displayed in a web browser such as Google Chrome, Microsoft Edge, or Mozilla Firefox.",
+        "Web pages contain different types of content including text, images, videos, and interactive elements that users can view and interact with.",
+        "HTML is responsible for creating and organizing the content of a web page, allowing browsers to properly display information in a structured and readable format."
+    ],
+    "example": {
+        "code": "<h1>Online Learning Website</h1>\n<p>Learn HTML, CSS, and JavaScript.</p>\n<img src=\"student.jpg\" alt=\"Student Learning\">",
+        "output": "A webpage displaying a title, a description, and an image."
+    }
+}

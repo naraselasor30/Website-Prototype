@@ -1,0 +1,10 @@
+{
+    "title": "Form Validation",
+    "description": [
+        "Form validation checks if user input is correct before submitting."
+    ],
+    "example": {
+        "code": "<input id=\"name\">\n<button onclick=\"check()\">Submit</button>\n\n<script>\nfunction check() {\n    let name = document.getElementById(\"name\").value;\n\n    if (name === \"\") {\n        console.log(\"Name is required\");\n    } else {\n        console.log(\"Valid name\");\n    }\n}\n</script>",
+        "output": "If empty: Name is required\nIf filled: Valid name"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "title": "Functions",
+    "description": [
+        "Functions are reusable blocks of code that perform a specific task."
+    ],
+    "example": {
+        "code": "function greet() {\n    console.log(\"Hello Student\");\n}\n\ngreet();",
+        "output": "Hello Student"
+    }
+}

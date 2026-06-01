@@ -1,0 +1,12 @@
+{
+    "title": "Links and Hyperlinks",
+    "description": [
+        "Links and hyperlinks allow users to navigate from one webpage to another or access external websites and resources.",
+        "They are created using the <a> tag along with the href attribute, which specifies the destination address.",
+        "Hyperlinks are essential for website navigation because they connect different pages and provide access to additional information, making the web an interconnected network of resources."
+    ],
+    "example": {
+        "code": "<a href=\"https://www.google.com\">Visit Google</a>",
+        "output": "A clickable text labeled 'Visit Google' that opens Google."
+    }
+}

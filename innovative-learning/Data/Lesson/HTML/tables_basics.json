@@ -1,0 +1,13 @@
+{
+    "title": "Tables Basics",
+    "description": [
+        "Tables are used to organize and display data in rows and columns.",
+        "HTML tables are created using the <table> tag, while rows are defined with <tr>, headers with <th>, and data cells with <td>.",
+        "Tables are useful for presenting structured information such as schedules, grades, product details, and reports.",
+        "They make data easier to understand by arranging information in a clear and organized layout."
+    ],
+    "example": {
+        "code": "<table border=\"1\">\n    <tr>\n        <th>Name</th>\n        <th>Course</th>\n    </tr>\n    <tr>\n        <td>Kley</td>\n        <td>BSIT</td>\n    </tr>\n</table>",
+        "output": "Name | Course\nKley | BSIT"
+    }
+}

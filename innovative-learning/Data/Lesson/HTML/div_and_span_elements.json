@@ -1,0 +1,12 @@
+{
+    "title": "Div and Span Elements",
+    "description": [
+        "The <div> and <span> elements are generic containers used to organize content within a webpage.",
+        "The <div> element is a block-level container that groups larger sections of content, while the <span> element is an inline container used for smaller portions of text or content.",
+        "These elements are commonly used with CSS and JavaScript to style, organize, and manipulate webpage elements."
+    ],
+    "example": {
+        "code": "<div>\n    <h2>Student Information</h2>\n    <p>Name: Kley</p>\n</div>\n\n<p>My favorite language is <span>HTML</span>.</p>",
+        "output": "A section containing student information and highlighted inline text."
+    }
+}

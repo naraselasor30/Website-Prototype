@@ -1,0 +1,10 @@
+{
+    "title": "Borders and Shadows",
+    "description": [
+        "Borders add outlines to elements, while shadows give depth and make elements look elevated."
+    ],
+    "example": {
+        "code": "div {\n    border: 2px solid black;\n    box-shadow: 5px 5px 10px gray;\n}",
+        "output": "A box with a black border and a shadow behind it, making it look raised."
+    }
+}

@@ -1,4 +1,11 @@
 {
     "title": "Introduction to JavaScript",
-    "description": "TO FOLLOW"
+    "description": [
+        "JavaScript is a programming language used to make web pages interactive.",
+        "While HTML is for structure and CSS is for design, JavaScript adds behavior like clicking buttons, showing messages, and updating content dynamically."
+    ],
+    "example": {
+        "code": "console.log(\"Hello World\");",
+        "output": "Hello World"
+    }
 }
