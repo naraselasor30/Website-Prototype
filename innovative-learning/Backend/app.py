@@ -143,6 +143,34 @@ def get_progress(user_id):
         "completedLessons": completed
     })
 
+@app.route("/lessons/<category>")
+def get_lessons(category):
+
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT id,
+            lesson_title,
+            lesson_file
+        FROM lessons
+        WHERE category = ?
+    """, (category,))
+
+    lessons = cursor.fetchall()
+
+    conn.close()
+
+    result = []
+
+    for lesson in lessons:
+        result.append({
+            "id": lesson[0],
+            "title": lesson[1],
+            "file": lesson[2]
+        })
+
+    return jsonify(result)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -112,25 +112,64 @@
             </div>
 
         </section>
-        <section id="lessonContent" class="info-card" style="margin: 50px auto; display:none;">
             
-            <div class="card-content">
-                <h3 id="lessonTitle">Lesson Title</h3>
-                <p id="lessonText">Lesson content will appear here...</p>
+            <div class="learn-layout-container">
 
-                <br>
+        <!-- LEFT SIDE -->
+        <section
+            id="lessonList"
+            class="learn-sidebar-panel"
+            style="display:none;">
 
-                <!-- NAVIGATION BUTTONS (DITO ILAGAY) -->
-                <button class="btn-quiz-outline" onclick="prevLesson()">← Previous</button>
-                <button class="btn-quiz-outline" onclick="nextLesson()">Next →</button>
+            <h3 id="courseTitle">
+                Course Lessons
+            </h3>
 
-                <br><br>
+            <div id="lessonButtons">
 
-                <!-- COMPLETE BUTTON -->
-                <button class="btn-start" onclick="completeLesson()">Mark as Complete</button>
             </div>
 
         </section>
+
+        <!-- RIGHT SIDE -->
+        <section
+            id="lessonContent"
+            class="learn-viewer-panel"
+            style="display:none;">
+
+            <div class="learn-viewer-content">
+
+                <h2 id="lessonTitle"></h2>
+
+                <div id="lessonDescription"></div>
+
+                <br>
+
+                <h3>Code Example</h3>
+
+                <pre id="lessonCode"></pre>
+
+                <br>
+
+                <h3>Output</h3>
+
+                <div id="lessonOutput"></div>
+
+                <br>
+
+                <button
+                    class="btn-start"
+                    onclick="completeLesson()">
+
+                    Mark as Complete
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
 
     </main>
     <script src="../JavaScript/Security.js"></script>

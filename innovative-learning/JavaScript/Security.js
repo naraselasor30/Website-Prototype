@@ -246,80 +246,112 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// ================= LESSON SYSTEM (JSON-BASED) =================
+// ================= LESSON SYSTEM (Database / JSON-BASED) =================
 
-// Storage for all courses
-let courseData = {};
-let currentTopic = "";
-let currentLessonIndex = 0;
 
-// Load ALL JSON files
-Promise.all([
-    fetch('../Data/Lesson/HTMLCourse.json').then(res => res.json()),
-    fetch('../Data/Lesson/CSSCourse.json').then(res => res.json()),
-    fetch('../Data/Lesson/JSCourse.json').then(res => res.json())
-])
-.then(([htmlData, cssData, jsData]) => {
-    courseData = {
-        ...htmlData,
-        ...cssData,
-        ...jsData
-    };
-})
-.catch(err => {
-    console.error("Error loading course data:", err);
-});
 
 // Start lesson
-function startLesson(topic) {
-    currentTopic = topic;
-    currentLessonIndex = 0;
+async function startLesson(topic) {
 
-    showLesson();
+    document.getElementById("lessonList").style.display = "block";
 
-    localStorage.setItem('currentTopic', topic);
-    localStorage.setItem('lessonIndex', currentLessonIndex);
+    document.getElementById("courseTitle").innerText =
+        topic + " Lessons";
+
+    const lessonButtons =
+        document.getElementById("lessonButtons");
+
+    lessonButtons.innerHTML = "";
+
+    const response = await fetch(
+        `http://127.0.0.1:5000/lessons/${topic}`
+    );
+
+    const lessons = await response.json();
+
+    lessons.forEach((lesson) => {
+
+        const btn =
+            document.createElement("button");
+
+        btn.className = "btn-quiz-outline learn-topic-btn";
+
+        btn.innerText =
+            lesson.title;
+
+        btn.onclick = () => {
+
+            document
+                .querySelectorAll(".learn-topic-btn")
+                .forEach(button => {
+                    button.classList.remove("learn-topic-active");
+                });
+
+            btn.classList.add("learn-topic-active");
+
+            openLesson(lesson);
+        };
+
+        lessonButtons.appendChild(btn);
+
+    });
 }
 
-// Show lesson
-function showLesson() {
-    if (!courseData[currentTopic]) {
-        alert("Lesson not loaded yet. Please try again.");
-        return;
+async function openLesson(lesson) {
+
+    console.log("OPEN LESSON CLICKED");
+    console.log(lesson);
+
+    try {
+
+        const filePath =
+            "../Data/Lesson/" + lesson.file;
+
+        console.log("Loading:", filePath);
+
+        const response =
+            await fetch(filePath);
+
+        console.log("Response:", response.status);
+
+        const data =
+            await response.json();
+
+        console.log(data);
+
+        document.getElementById("lessonContent").style.display =
+            "block";
+
+        document.getElementById("lessonTitle").innerText =
+            data.title;
+
+        document.getElementById("lessonDescription").innerHTML =
+            data.description
+                .map(text =>
+                    `<p>${
+                        text
+                            .replace(/</g, "&lt;")
+                            .replace(/>/g, "&gt;")
+                    }</p>`
+                )
+                .join("");
+
+        document.getElementById("lessonCode").innerText =
+            data.example.code;
+
+        document.getElementById("lessonOutput").innerText =
+            data.example.output;
+
+    } catch(error) {
+
+        console.error("LESSON ERROR:", error);
+
     }
 
-    const lesson = courseData[currentTopic][currentLessonIndex];
-
-    document.getElementById('lessonTitle').innerText = lesson.title;
-    document.getElementById('lessonText').innerText = lesson.content;
-
-    document.getElementById('lessonContent').style.display = "block";
-}
-
-// Next lesson
-function nextLesson() {
-    if (!courseData[currentTopic]) return;
-
-    currentLessonIndex++;
-
-    if (currentLessonIndex >= courseData[currentTopic].length) {
-        alert("🎉 You finished this course!");
-        return;
-    }
-
-    showLesson();
-
-    localStorage.setItem('lessonIndex', currentLessonIndex);
-}
-
-// Previous lesson
-function prevLesson() {
-    if (currentLessonIndex > 0) {
-        currentLessonIndex--;
-        showLesson();
-
-        localStorage.setItem('lessonIndex', currentLessonIndex);
-    }
+    document.getElementById("lessonContent")
+    .scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
 // Complete lesson (progress system)
@@ -415,7 +447,7 @@ function loadQuestion() {
 
     q.choices.forEach((choice, index) => {
         const btn = document.createElement("button");
-        btn.className = "btn-quiz-outline";
+        btn.className = "btn-quiz-outline learn-topic-btn";
         btn.innerText = choice;
 
         btn.onclick = () => checkAnswer(index, btn);
