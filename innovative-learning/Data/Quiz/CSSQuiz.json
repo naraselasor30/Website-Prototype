@@ -1,0 +1,204 @@
+{
+  "CSS": [
+    {
+      "question": "What does CSS stand for?",
+      "choices": [
+        "Computer Style Sheets",
+        "Creative Style Sheets",
+        "Cascading Style Sheets",
+        "Colorful Style Sheets"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is the main purpose of CSS?",
+      "choices": [
+        "To create databases",
+        "To structure web pages",
+        "To style and design web pages",
+        "To connect websites to servers"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which symbol is used to start a CSS declaration block?",
+      "choices": [
+        "( )",
+        "[ ]",
+        "{ }",
+        "< >"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which CSS property is used to change text color?",
+      "choices": [
+        "text-color",
+        "font-color",
+        "color",
+        "text-style"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which CSS property changes the background color of an element?",
+      "choices": [
+        "color",
+        "background-color",
+        "bg-color",
+        "page-color"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which selector targets all <p> elements?",
+      "choices": [
+        "#p",
+        ".p",
+        "p",
+        "*p"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which selector is used for a class?",
+      "choices": [
+        "#",
+        ".",
+        "*",
+        "@"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which selector is used for an ID?",
+      "choices": [
+        ".",
+        "*",
+        "@",
+        "#"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "Which CSS property changes the size of text?",
+      "choices": [
+        "font-size",
+        "text-size",
+        "size",
+        "font-style"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Which CSS property is used to make text bold?",
+      "choices": [
+        "font-style",
+        "text-weight",
+        "font-weight",
+        "bold-text"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What part of the Box Model creates space inside an element's border?",
+      "choices": [
+        "Margin",
+        "Padding",
+        "Border",
+        "Width"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What part of the Box Model creates space outside an element's border?",
+      "choices": [
+        "Margin",
+        "Padding",
+        "Height",
+        "Content"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Which CSS property adds a border around an element?",
+      "choices": [
+        "outline",
+        "frame",
+        "border",
+        "line"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which CSS property adds a shadow effect to an element?",
+      "choices": [
+        "shadow",
+        "text-shadow",
+        "border-shadow",
+        "box-shadow"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "Which display value makes an element take up the full width available?",
+      "choices": [
+        "inline",
+        "block",
+        "flex",
+        "none"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which CSS property is used to control an element's position?",
+      "choices": [
+        "align",
+        "move",
+        "position",
+        "location"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which CSS layout model is designed for arranging items in a row or column?",
+      "choices": [
+        "Table",
+        "Grid",
+        "Flexbox",
+        "Float"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which CSS property enables Flexbox?",
+      "choices": [
+        "display: block;",
+        "display: flex;",
+        "display: inline;",
+        "display: grid;"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which CSS layout system is designed for creating rows and columns?",
+      "choices": [
+        "Flexbox",
+        "Float",
+        "Grid",
+        "Positioning"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is the purpose of responsive design?",
+      "choices": [
+        "To make websites load faster",
+        "To add animations",
+        "To make websites adapt to different screen sizes",
+        "To create databases"
+      ],
+      "answer": 2
+    }
+  ]
+}

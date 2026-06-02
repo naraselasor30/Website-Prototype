@@ -1,177 +1,163 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innovative Learning - Learn</title>
-    <link rel="stylesheet" href="../CSS/Design.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-</head>
-<body class="learn-page"> 
-    <header class="navbar">
-        <div class="nav-container">
-            <div class="brand">
-                <img src="../Pictures/Logo/Logo.png" alt="Logo" class="main-logo">
-                <div class="brand-text">
-                    <span class="company-name">Innovative Learning</span>
-                    <span class="tagline">Learn • Practice • Grow</span>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Innovative Learning - Learn</title>
+        <link rel="stylesheet" href="../CSS/Design.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    </head>
+    <body class="learn-page"> 
+        <header class="navbar">
+            <div class="nav-container">
+                <div class="brand">
+                    <img src="../Pictures/Logo/Logo.png" alt="Logo" class="main-logo">
+                    <div class="brand-text">
+                        <span class="company-name">Innovative Learning</span>
+                        <span class="tagline">Learn • Practice • Grow</span>
+                    </div>
                 </div>
-            </div>
-            
-            <nav class="central-nav">
-                <a href="Home.html" class="nav-item home-link">
-                    <i class="fa-solid fa-house"></i> Home
-                </a>
-                <a href="Learn.html" class="nav-item learn-link">
-                    <i class="fa-solid fa-book-open"></i> Learn
-                </a>
-                <a href="Quiz.html" class="nav-item quiz-link">
-                    <i class="fa-solid fa-pen-nib"></i> Quiz
-                </a>
-            </nav>
-
-            <div class="user-actions">
-                <div class="secondary-actions">
-                    <a href="javascript:void(0)" class="action-item" onclick="openModal('subModal')">
-                        <i class="fa-solid fa-crown"></i> Subscription
+                
+                <nav class="central-nav">
+                    <a href="Home.html" class="nav-item home-link">
+                        <i class="fa-solid fa-house"></i> Home
                     </a>
-                    
-                    <a href="#" class="action-item">
-                        <i class="fa-regular fa-circle-question"></i> Help
+                    <a href="Learn.html" class="nav-item learn-link">
+                        <i class="fa-solid fa-book-open"></i> Learn
                     </a>
-
-                    <a href="javascript:void(0)" class="action-item" onclick="openModal('langModal')">
-                        <i class="fa-solid fa-globe"></i> <span id="currentLang">English</span>
+                    <a href="Quiz.html" class="nav-item quiz-link">
+                        <i class="fa-solid fa-pen-nib"></i> Quiz
                     </a>
-                </div>
-                    <div id="authLink"></div>
-            </div>
+                </nav>
 
+                <div class="user-actions">
+                    <div class="secondary-actions">
+                        <a href="javascript:void(0)" class="action-item" onclick="openModal('subModal')">
+                            <i class="fa-solid fa-crown"></i> Subscription
+                        </a>
+                        
+                        <a href="#" class="action-item">
+                            <i class="fa-regular fa-circle-question"></i> Help
+                        </a>
+
+                        <a href="javascript:void(0)" class="action-item" onclick="openModal('langModal')">
+                            <i class="fa-solid fa-globe"></i> <span id="currentLang">English</span>
+                        </a>
+                    </div>
+                        <div id="authLink"></div>
+                </div>
+
+            </div>
+        </header>
+
+        <div id="subModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('subModal')">&times;</span>
+                <h3>Available Subscriptions</h3>
+                <div class="sub-option"><h4>Student Plan</h4><p>₱149/month</p></div>
+                <div class="sub-option" style="border: 2px solid #b58d59;"><h4>Pro Plan</h4><p>₱249/month</p></div>
+            </div>
         </div>
-    </header>
 
-    <div id="subModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('subModal')">&times;</span>
-            <h3>Available Subscriptions</h3>
-            <div class="sub-option"><h4>Student Plan</h4><p>₱149/month</p></div>
-            <div class="sub-option" style="border: 2px solid #b58d59;"><h4>Pro Plan</h4><p>₱249/month</p></div>
+        <div id="langModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('langModal')">&times;</span>
+                <h3>Select Language</h3>
+                <div class="sub-option" onclick="changeLang('English')">English</div>
+                <div class="sub-option" onclick="changeLang('Tagalog')">Tagalog</div>
+            </div>
         </div>
-    </div>
 
-    <div id="langModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('langModal')">&times;</span>
-            <h3>Select Language</h3>
-            <div class="sub-option" onclick="changeLang('English')">English</div>
-            <div class="sub-option" onclick="changeLang('Tagalog')">Tagalog</div>
+        <main class="hero-section">
+
+            <div class="welcome-badge">✦ Study Modules</div>
+            <h1 class="hero-title">Start Your Journey</h1>
+            <p class="hero-subtitle">Choose from our interactive lessons.</p>
+
+            <!-- LESSON CARDS -->
+            <section class="info-cards">
+
+                <div class="info-card">
+                    <div class="icon-circle dark">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <div class="card-content">
+                        <h4>HTML</h4>
+                        <p>Learn HTML Language</p>
+                        <button class="btn-quiz-outline" onclick="startLesson('HTML')">Start</button>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-circle orange">
+                        <i class="fa-solid fa-paintbrush"></i>
+                    </div>
+                    <div class="card-content">
+                        <h4>CSS</h4>
+                        <p>Learn CSS Language</p>
+                        <button class="btn-quiz-outline" onclick="startLesson('CSS')">Start</button>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-circle green">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h4>Java Script</h4>
+                        <p>Learn Java Script Language</p>
+                        <button class="btn-quiz-outline" onclick="startLesson('JS')">Start</button>
+                    </div>
+                </div>
+
+            </section>
+                
+                <div class="learn-layout-container">
+
+            <!-- LEFT SIDE -->
+            <section
+                id="lessonList"
+                class="learn-sidebar-panel"
+                style="display:none;">
+
+                <h3 id="courseTitle">
+                    Course Lessons
+                </h3>
+
+                <div id="lessonButtons"></div>
+            </section>
+
+            <!-- RIGHT SIDE -->
+            <section
+                id="lessonContent"
+                class="learn-viewer-panel"
+                style="display:none;">
+
+                <div class="learn-viewer-content">
+                    <h2 id="lessonTitle"></h2>
+                    <div id="lessonDescription"></div>
+                    <br>
+                    <h3>Code Example</h3>
+                    <pre id="lessonCode"></pre>
+                    <br>
+                    <h3>Output</h3>
+                    <div id="lessonOutput"></div>
+                    <br>
+
+                    <div class="lesson-actions">
+                        
+                        <button
+                            id="nextLessonBtn"
+                            type="button"
+                            class="btn-next">
+                            Next Lesson →
+                        </button>
+                    </div>
+                </div>
+            </section>
         </div>
-    </div>
-
-    <main class="hero-section">
-
-        <div class="welcome-badge">✦ Study Modules</div>
-        <h1 class="hero-title">Start Your Journey</h1>
-        <p class="hero-subtitle">Choose from our interactive lessons.</p>
-
-        <!-- LESSON CARDS -->
-        <section class="info-cards">
-
-            <div class="info-card">
-                <div class="icon-circle dark">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-                <div class="card-content">
-                    <h4>HTML</h4>
-                    <p>Learn HTML Language</p>
-                    <button class="btn-quiz-outline" onclick="startLesson('HTML')">Start</button>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <div class="icon-circle orange">
-                    <i class="fa-solid fa-paintbrush"></i>
-                </div>
-                <div class="card-content">
-                    <h4>CSS</h4>
-                    <p>Learn CSS Language</p>
-                    <button class="btn-quiz-outline" onclick="startLesson('CSS')">Start</button>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <div class="icon-circle green">
-                    <i class="fa-solid fa-bolt"></i>
-                </div>
-                <div class="card-content">
-                    <h4>Java Script</h4>
-                    <p>Learn Java Script Language</p>
-                    <button class="btn-quiz-outline" onclick="startLesson('JS')">Start</button>
-                </div>
-            </div>
-
-        </section>
-            
-            <div class="learn-layout-container">
-
-        <!-- LEFT SIDE -->
-        <section
-            id="lessonList"
-            class="learn-sidebar-panel"
-            style="display:none;">
-
-            <h3 id="courseTitle">
-                Course Lessons
-            </h3>
-
-            <div id="lessonButtons">
-
-            </div>
-
-        </section>
-
-        <!-- RIGHT SIDE -->
-        <section
-            id="lessonContent"
-            class="learn-viewer-panel"
-            style="display:none;">
-
-            <div class="learn-viewer-content">
-
-                <h2 id="lessonTitle"></h2>
-
-                <div id="lessonDescription"></div>
-
-                <br>
-
-                <h3>Code Example</h3>
-
-                <pre id="lessonCode"></pre>
-
-                <br>
-
-                <h3>Output</h3>
-
-                <div id="lessonOutput"></div>
-
-                <br>
-
-                <button
-                    class="btn-start"
-                    onclick="completeLesson()">
-
-                    Mark as Complete
-
-                </button>
-
-            </div>
-
-        </section>
-
-    </div>
-
-    </main>
-    <script src="../JavaScript/Security.js"></script>
-</body>
-</html>
+        </main>
+        <script src="../JavaScript/Security.js"></script>
+    </body>
+    </html>

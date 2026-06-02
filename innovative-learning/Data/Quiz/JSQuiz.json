@@ -1,0 +1,204 @@
+{
+  "JS": [
+    {
+      "question": "What is the main purpose of JavaScript?",
+      "choices": [
+        "To structure web pages",
+        "To style web pages",
+        "To add interactivity to web pages",
+        "To create databases"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which keyword is used to declare a variable in JavaScript?",
+      "choices": [
+        "variable",
+        "var",
+        "create",
+        "define"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which of the following is a string data type?",
+      "choices": [
+        "100",
+        "true",
+        "\"Hello\"",
+        "null"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is the result of the following expression? 5 + 3",
+      "choices": [
+        "15",
+        "8",
+        "53",
+        "2"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which operator is used for multiplication?",
+      "choices": [
+        "+",
+        "-",
+        "*",
+        "/"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which function is commonly used to get user input?",
+      "choices": [
+        "alert()",
+        "prompt()",
+        "print()",
+        "input()"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which statement is used to make decisions in JavaScript?",
+      "choices": [
+        "loop",
+        "function",
+        "if",
+        "array"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What will the following code output?\n\nlet age = 20;\n\nif(age >= 18){\n    console.log(\"Adult\");\n}",
+      "choices": [
+        "Minor",
+        "Adult",
+        "20",
+        "Error"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which comparison operator checks if two values are equal?",
+      "choices": [
+        "=",
+        "==",
+        "=>",
+        "+="
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What will be the output?\n\nconsole.log(10 > 5);",
+      "choices": [
+        "true",
+        "false",
+        "10",
+        "5"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Which loop is commonly used when the number of repetitions is known?",
+      "choices": [
+        "while loop",
+        "do-while loop",
+        "for loop",
+        "foreach loop"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is the output?\n\nfor(let i = 1; i <= 3; i++){\n    console.log(i);\n}",
+      "choices": [
+        "0, 1, 2",
+        "1, 2, 3",
+        "1, 2, 3, 4",
+        "3, 2, 1"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is a function in JavaScript?",
+      "choices": [
+        "A type of loop",
+        "A variable",
+        "A reusable block of code",
+        "An object"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "How do you call a function named greet?",
+      "choices": [
+        "call greet;",
+        "greet;",
+        "greet()",
+        "function greet()"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is scope in JavaScript?",
+      "choices": [
+        "A type of variable",
+        "The area where a variable can be accessed",
+        "A mathematical operation",
+        "A JavaScript library"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which of the following is an array?",
+      "choices": [
+        "\"Apple\"",
+        "25",
+        "[\"Apple\", \"Banana\", \"Mango\"]",
+        "{name:\"Mark\"}"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is the index number of the first element in an array?",
+      "choices": [
+        "1",
+        "0",
+        "-1",
+        "10"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which of the following is an object?",
+      "choices": [
+        "[\"Apple\", \"Banana\"]",
+        "\"Mark\"",
+        "25",
+        "{ name: \"Mark\", age: 20 }"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "What does DOM stand for?",
+      "choices": [
+        "Data Object Management",
+        "Document Object Model",
+        "Dynamic Object Method",
+        "Document Oriented Method"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the purpose of form validation?",
+      "choices": [
+        "To change website colors",
+        "To create animations",
+        "To check if user input is correct before submission",
+        "To delete user input"
+      ],
+      "answer": 2
+    }
+  ]
+}

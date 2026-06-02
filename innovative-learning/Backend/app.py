@@ -111,12 +111,30 @@ def complete_lesson():
     cursor = conn.cursor()
 
     cursor.execute("""
-        INSERT INTO lesson_progress
-        (user_id, lesson_name)
-        VALUES (?, ?)
-    """, (user_id, lesson_name))
+        SELECT *
+        FROM lesson_progress
+        WHERE user_id = ?
+        AND lesson_name = ?
+    """, (
+        user_id,
+        lesson_name
+    ))
 
-    conn.commit()
+    existing = cursor.fetchone()
+
+    if not existing:
+
+        cursor.execute("""
+            INSERT INTO lesson_progress
+            (user_id, lesson_name)
+            VALUES (?, ?)
+        """, (
+            user_id,
+            lesson_name
+        ))
+
+        conn.commit()
+
     conn.close()
 
     return jsonify({
@@ -172,5 +190,67 @@ def get_lessons(category):
 
     return jsonify(result)
 
+@app.route("/dashboard/<int:user_id>")
+def dashboard(user_id):
+
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT xp
+        FROM users
+        WHERE id = ?
+    """, (user_id,))
+
+    user = cursor.fetchone()
+
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM lesson_progress
+        WHERE user_id = ?
+    """, (user_id,))
+
+    lessons = cursor.fetchone()[0]
+
+    cursor.execute("""
+        SELECT COUNT(DISTINCT quiz_id)
+        FROM quiz_results
+        WHERE user_id = ?
+    """, (user_id,))
+
+    quizzes = cursor.fetchone()[0]
+
+    conn.close()
+
+    return jsonify({
+        "xp": user[0],
+        "lessons": lessons,
+        "quizzes": quizzes
+    })
+
+@app.route("/add_xp", methods=["POST"])
+def add_xp():
+
+    data = request.get_json()
+
+    user_id = data["userId"]
+    xp = data["xp"]
+
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        UPDATE users
+        SET xp = xp + ?
+        WHERE id = ?
+    """, (xp, user_id))
+
+    conn.commit()
+    conn.close()
+
+    return jsonify({
+        "success": True
+    })
+    
 if __name__ == "__main__":
     app.run(debug=True)

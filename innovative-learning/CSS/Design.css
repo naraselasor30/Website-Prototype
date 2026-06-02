@@ -693,20 +693,6 @@ body {
     margin-top: 20px;
 }
 
-/* XP BOX (highlight card) */
-.xp-box {
-    margin-top: 20px;
-    background: #f5e9c9;
-    padding: 15px 20px;
-    border-radius: 15px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-
 .overview-card {
     background: rgba(255,255,255,0.85);
     backdrop-filter: blur(12px);
@@ -748,16 +734,40 @@ body {
 }
 
 /* XP box */
-.xp-box {
-    margin-top: 20px;
-    background: #f5e9c9;
-    padding: 15px;
-    border-radius: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.xp-box{
+    margin-top:20px;
+    background:#f5e9c9;
+    padding:20px 25px;
+    border-radius:18px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
+.xp-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.xp-level{
+    font-size:1.2rem;
+    font-weight:700;
+    color:#2D463E;
+}
+
+.xp-current{
+    font-size:1rem;
+    font-weight:600;
+    color:#2D463E;
+}
+
+.xp-remaining{
+    text-align:center;
+    font-size:.9rem;
+    color:#666;
+}
 /* ===== PROFILE FINAL POLISH (SAFE ADD) ===== */
 
 /* LEFT CARD IMPROVE */
@@ -1253,4 +1263,42 @@ body {
     justify-content: center;
     font-size: 12px;
     font-weight: bold;
+}
+
+/* ===== QUIZ FINAL RESULT ===== */
+
+.quiz-final-result-box {
+    text-align: center;
+    padding: 20px;
+}
+
+.quiz-final-result-box-title {
+    color: #2D463E;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.quiz-final-result-box-text {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.lesson-actions{
+    margin-top:25px;
+    text-align:center;
+}
+
+#nextLessonBtn{
+    background:#2D463E;
+    color:white;
+    border:none;
+    padding:12px 30px;
+    border-radius:999px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+#nextLessonBtn:hover{
+    opacity:.9;
 }

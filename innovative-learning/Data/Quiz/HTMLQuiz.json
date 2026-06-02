@@ -1,0 +1,204 @@
+{
+  "HTML": [
+    {
+      "question": "What does HTML stand for?",
+      "choices": [
+        "Hyper Text Markup Language",
+        "High Text Markup Language",
+        "Hyper Transfer Markup Language",
+        "Hyper Tool Markup Language"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Which tag is used to create the largest heading?",
+      "choices": [
+        "<heading>",
+        "<h6>",
+        "<h1>",
+        "<head>"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which tag is used to create a paragraph?",
+      "choices": [
+        "<text>",
+        "<paragraph>",
+        "<p>",
+        "<para>"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which HTML tag is used to create a hyperlink?",
+      "choices": [
+        "<link>",
+        "<a>",
+        "<href>",
+        "<url>"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What attribute specifies the destination of a hyperlink?",
+      "choices": [
+        "src",
+        "target",
+        "href",
+        "link"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which tag is used to display an image?",
+      "choices": [
+        "<picture>",
+        "<img>",
+        "<image>",
+        "<photo>"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What attribute is used to provide alternative text for an image?",
+      "choices": [
+        "src",
+        "alt",
+        "title",
+        "href"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which tag creates a numbered list?",
+      "choices": [
+        "<ul>",
+        "<list>",
+        "<li>",
+        "<ol>"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "Which tag creates a bulleted list?",
+      "choices": [
+        "<ol>",
+        "<ul>",
+        "<li>",
+        "<list>"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which tag represents an item inside a list?",
+      "choices": [
+        "<item>",
+        "<list>",
+        "<li>",
+        "<ul>"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which section of an HTML document contains information about the webpage that is not directly displayed?",
+      "choices": [
+        "<body>",
+        "<footer>",
+        "<main>",
+        "<head>"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "Which tag is used to create a table row?",
+      "choices": [
+        "<td>",
+        "<tr>",
+        "<th>",
+        "<table>"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which tag is used to create a table heading?",
+      "choices": [
+        "<th>",
+        "<td>",
+        "<tr>",
+        "<thead>"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Which HTML element is used to collect user input?",
+      "choices": [
+        "<form>",
+        "<input>",
+        "<button>",
+        "<label>"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Which input type hides the characters entered by the user?",
+      "choices": [
+        "text",
+        "email",
+        "password",
+        "number"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which tag is commonly used to create a clickable button?",
+      "choices": [
+        "<click>",
+        "<btn>",
+        "<button>",
+        "<submit>"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which semantic HTML tag is used for website navigation links?",
+      "choices": [
+        "<section>",
+        "<main>",
+        "<nav>",
+        "<header>"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Which tag is used to embed a video file in HTML?",
+      "choices": [
+        "<media>",
+        "<movie>",
+        "<video>",
+        "<embedvideo>"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What does the HTML entity &copy; display?",
+      "choices": [
+        "®",
+        "©",
+        "™",
+        "&"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the main purpose of semantic HTML?",
+      "choices": [
+        "To add animations",
+        "To increase internet speed",
+        "To describe the meaning and structure of content",
+        "To create databases"
+      ],
+      "answer": 2
+    }
+  ]
+}

@@ -95,24 +95,29 @@
 
                         <div class="stat-box">
                             <i class="fa-solid fa-book-open"></i>
-                            <h3>12</h3>
+                            <h3 id="lessonCompletedCount">0</h3>
                             <p>Lessons Completed</p>
                         </div>
 
                         <div class="stat-box">
                             <i class="fa-solid fa-star"></i>
-                            <h3>4.8</h3>
-                            <p>Quiz Average</p>
+                            <h3 id="totalXPDisplay">0</h3>
+                            <p>Total XP</p>
                         </div>
 
                         <div class="stat-box">
-                            <i class="fa-solid fa-clock"></i>
-                            <h3>2h 30m</h3>
-                            <p>Study Time</p>
+                            <i class="fa-solid fa-pen-nib"></i>
+                            <h3 id="quizCompletedCount">0</h3>
+                            <p>Quizzes Completed</p>
+                        </div>
+
+                        <div class="stat-box">
+                            <i class="fa-solid fa-trophy"></i>
+                            <h3 id="userLevel">1</h3>
+                            <p>Current Level</p>
                         </div>
 
                     </div>
-
                 </div>
 
                 <!-- GRID SECTION -->
@@ -149,8 +154,34 @@
 
                 <!-- XP BOX -->
                 <div class="xp-box">
-                    <p>Keep going, username! You're on a 5-day streak</p>
-                    <span>+50 XP</span>
+
+                    <div class="xp-header">
+
+                        <span id="xpLevelText">
+                            Level 1
+                        </span>
+
+                        <span id="xpCurrentValue">
+                            0 XP
+                        </span>
+
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill"
+                            id="xpProgressFill">
+                        </div>
+
+                    </div>
+
+                    <p
+                        id="xpRemainingText"
+                        class="xp-remaining">
+                        100 XP to Level 2
+                    </p>
+
                 </div>
 
             </div>
@@ -196,10 +227,17 @@
             document.getElementById(
                 "progressText"
             ).innerText =
-                data.completedLessons + " Lessons Completed";
+                data.completedLessons +
+                " Lessons Completed";
+
+            document.getElementById(
+                "lessonCompletedCount"
+            ).innerText =
+                data.completedLessons;
         }
 
         loadProgress();
+        loadDashboardStatsDatabase();
 
     </script>
 

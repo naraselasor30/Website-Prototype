@@ -1,3 +1,6 @@
+window.onbeforeunload = function () {
+    console.log("PAGE IS RELOADING");
+};
 // Function para buksan ang modal
 function openModal(id) {
     document.getElementById(id).style.display = "block";
@@ -248,10 +251,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ================= LESSON SYSTEM (Database / JSON-BASED) =================
 
-
+let currentLessons = [];
+let currentLessonIndex = 0;
+let currentTopic = "";
 
 // Start lesson
 async function startLesson(topic) {
+
+    currentTopic = topic;
 
     document.getElementById("lessonList").style.display = "block";
 
@@ -268,18 +275,23 @@ async function startLesson(topic) {
     );
 
     const lessons = await response.json();
+    currentLessons = lessons;
 
-    lessons.forEach((lesson) => {
+    lessons.forEach((lesson, index) => {
 
         const btn =
             document.createElement("button");
 
         btn.className = "btn-quiz-outline learn-topic-btn";
 
+        
+
         btn.innerText =
             lesson.title;
 
         btn.onclick = () => {
+
+            currentLessonIndex = index;
 
             document
                 .querySelectorAll(".learn-topic-btn")
@@ -290,6 +302,7 @@ async function startLesson(topic) {
             btn.classList.add("learn-topic-active");
 
             openLesson(lesson);
+
         };
 
         lessonButtons.appendChild(btn);
@@ -358,31 +371,124 @@ async function openLesson(lesson) {
 async function completeLesson() {
 
     const user =
-        JSON.parse(localStorage.getItem("currentUser"));
+        JSON.parse(
+            localStorage.getItem(
+                "currentUser"
+            )
+        );
 
     const lessonName =
-        document.getElementById("lessonTitle").innerText;
+        document.getElementById(
+            "lessonTitle"
+        ).innerText;
 
-    const response = await fetch(
-        "http://127.0.0.1:5000/complete_lesson",
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                userId: user.id,
-                lessonName: lessonName
-            })
+    const response =
+        await fetch(
+            "http://127.0.0.1:5000/complete_lesson",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type":
+                    "application/json"
+                },
+                body: JSON.stringify({
+                    userId: user.id,
+                    lessonName: lessonName
+                })
+            }
+        );
+
+    const data =
+        await response.json();
+
+    if(data.success){
+
+        const currentBtn =
+            document.querySelectorAll(
+                ".learn-topic-btn"
+            )[currentLessonIndex];
+
+        if(currentBtn){
+
+            currentBtn.classList.remove(
+                "learn-topic-active"
+            );
+
+            currentBtn.classList.add(
+                "learn-topic-complete"
+            );
+
+            currentBtn.innerHTML =
+                `${lessonName} <span class="lesson-check">✓</span>`;
+
         }
+
+    }
+
+}
+
+document.addEventListener("click", async function(e){
+
+    if(e.target.id !== "nextLessonBtn")
+        return;
+
+    e.preventDefault();
+
+    console.log("NEXT BUTTON WORKING");
+
+    await completeLesson();
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "currentUser"
+            )
+        );
+
+    currentLessonIndex++;
+
+    if(
+        currentLessonIndex >=
+        currentLessons.length
+    ){
+
+        alert(
+            "🎉 Course Completed!"
+        );
+
+        return;
+
+    }
+
+    const nextLesson =
+        currentLessons[
+            currentLessonIndex
+        ];
+
+    document
+    .querySelectorAll(
+        ".learn-topic-btn"
+    )
+    .forEach(button => {
+        button.classList.remove(
+            "learn-topic-active"
+        );
+    });
+
+    document
+    .querySelectorAll(
+        ".learn-topic-btn"
+    )[currentLessonIndex]
+    .classList.add(
+        "learn-topic-active"
     );
 
-    const data = await response.json();
+    await openLesson(
+        nextLesson
+    );
 
-    if (data.success) {
-        alert("Lesson completed!");
-    }
-}
+});
+
 // ================= MODERN QUIZ SYSTEM (THESIS VERSION) =================
 
 let quizData = {};
@@ -392,14 +498,57 @@ let currentQuiz = "";
 let answered = false;
 
 // ================= LOAD QUIZ DATA =================
+
 async function loadQuizData() {
+
     try {
-        const res = await fetch('../Data/Quiz/quizData.json');
-        quizData = await res.json();
-    } catch (error) {
-        console.error("Error loading quiz data:", error);
+
+        const [
+            htmlQuiz,
+            cssQuiz,
+            jsQuiz
+        ] = await Promise.all([
+
+            fetch(
+                "../Data/Quiz/HTMLQuiz.json"
+            ).then(res => res.json()),
+
+            fetch(
+                "../Data/Quiz/CSSQuiz.json"
+            ).then(res => res.json()),
+
+            fetch(
+                "../Data/Quiz/JSQuiz.json"
+            ).then(res => res.json())
+
+        ]);
+
+        quizData = {
+
+            ...htmlQuiz,
+
+            ...cssQuiz,
+
+            ...jsQuiz
+
+        };
+
+        console.log(
+            "Quiz Loaded Successfully",
+            quizData
+        );
+
+    } catch(error) {
+
+        console.error(
+            "Quiz Load Error:",
+            error
+        );
+
     }
+
 }
+
 loadQuizData();
 
 // ================= START QUIZ =================
@@ -445,9 +594,11 @@ function loadQuestion() {
     const container = document.getElementById('quizChoices');
     container.innerHTML = "";
 
-    q.choices.forEach((choice, index) => {
-        const btn = document.createElement("button");
-        btn.className = "btn-quiz-outline learn-topic-btn";
+        q.choices.forEach((choice, index) => {
+
+            const btn = document.createElement("button");
+
+            btn.className = "btn-quiz-outline";
         btn.innerText = choice;
 
         btn.onclick = () => checkAnswer(index, btn);
@@ -495,23 +646,116 @@ function nextQuestion() {
 }
 
 // ================= RESULT SCREEN =================
-function showResult() {
-    const total = quizData[currentQuiz].length;
+async function showResult() {
 
-    document.getElementById('quizQuestion').innerText = `🎉 Quiz Completed!`;
-    document.getElementById('quizProgress').innerText = `Score: ${score} / ${total}`;
+    const total =
+        quizData[currentQuiz].length;
 
-    document.getElementById('quizChoices').innerHTML = `
-        <p style="font-size:1.2rem; margin-top:20px;">
-            You got ${score} out of ${total} questions correct.
-        </p>
+    const percentage =
+        Math.round((score / total) * 100);
+
+    let earnedXP = 0;
+    let remarks = "";
+
+    if (percentage >= 90) {
+
+        earnedXP = 100;
+        remarks = "Excellent!";
+
+    } else if (percentage >= 80) {
+
+        earnedXP = 75;
+        remarks = "Very Good!";
+
+    } else if (percentage >= 70) {
+
+        earnedXP = 50;
+        remarks = "Good Job!";
+
+    } else if (percentage >= 60) {
+
+        earnedXP = 25;
+        remarks = "Fair Performance";
+
+    } else {
+
+        earnedXP = 10;
+        remarks = "Needs Improvement";
+
+    }
+
+    document.getElementById("quizQuestion").innerText =
+        "🎉 Quiz Completed!";
+
+    document.getElementById("quizProgress").innerText =
+        `Score: ${score} / ${total}`;
+
+    document.getElementById("quizChoices").innerHTML = `
+
+        <div class="quiz-final-result-box">
+
+            <h3 class="quiz-final-result-box-title">
+                ${remarks}
+            </h3>
+
+            <p class="quiz-final-result-box-text">
+                Score: ${score} / ${total}
+            </p>
+
+            <p class="quiz-final-result-box-text">
+                Percentage: ${percentage}%
+            </p>
+
+            <p class="quiz-final-result-box-text">
+                XP Earned: +${earnedXP}
+            </p>
+
+            <button
+                class="btn-next"
+                onclick="startQuiz('${currentQuiz}')">
+
+                Retake Quiz
+
+            </button>
+
+        </div>
+
     `;
 
-    // Disable next after finish
-    document.getElementById('nextBtn').disabled = true;
+    document.getElementById("nextBtn").disabled = true;
 
     // Save score
-    localStorage.setItem(`quizScore_${currentQuiz}`, score);
+    localStorage.setItem(
+        `quizScore_${currentQuiz}`,
+        score
+    );
+
+    // Save XP
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "currentUser"
+            )
+        );
+
+    if(user){
+
+        await fetch(
+            "http://127.0.0.1:5000/add_xp",
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":
+                    "application/json"
+                },
+                body:JSON.stringify({
+                    userId:user.id,
+                    xp:earnedXP
+                })
+            }
+        );
+
+    }
 }
 
 // ================= SELECT QUIZ (UI) =================
@@ -570,3 +814,48 @@ window.addEventListener("load", () => {
         document.body.classList.add("dark-mode");
     }
 });
+
+
+
+async function loadDashboardStatsDatabase(){
+
+    console.log("Dashboard Function Running");
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "currentUser"
+            )
+        );
+        
+        console.log("USER:", user);
+        console.log("USER ID:", user?.id);
+
+    if(!user) return;
+
+    const response =
+        await fetch(
+            `http://127.0.0.1:5000/dashboard/${user.id}`
+        );
+
+    const data =
+        await response.json();
+
+        console.log(data);
+        console.log("DASHBOARD DATA:", data);
+
+    document.getElementById(
+        "lessonCompletedCount"
+    ).innerText =
+        data.lessons;
+
+    document.getElementById(
+        "quizCompletedCount"
+    ).innerText =
+        data.quizzes;
+
+    document.getElementById(
+        "totalXPDisplay"
+    ).innerText =
+        data.xp;
+}
