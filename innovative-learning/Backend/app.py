@@ -252,5 +252,171 @@ def add_xp():
         "success": True
     })
     
+@app.route("/add_activity", methods=["POST"])
+def add_activity():
+
+    data = request.get_json()
+
+    user_id = data["userId"]
+    activity = data["activity"]
+
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        INSERT INTO activity_logs
+        (user_id, activity)
+        VALUES (?, ?)
+    """, (
+        user_id,
+        activity
+    ))
+
+    conn.commit()
+    conn.close()
+
+    return jsonify({
+        "success": True
+    })
+    
+@app.route("/activities/<int:user_id>")
+def get_activities(user_id):
+
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT activity
+        FROM activity_logs
+        WHERE user_id = ?
+        ORDER BY id DESC
+        LIMIT 10
+    """, (user_id,))
+
+    activities = cursor.fetchall()
+
+    conn.close()
+
+    return jsonify([
+        activity[0]
+        for activity in activities
+    ])
+
+@app.route("/save_quiz", methods=["POST"])
+def save_quiz():
+
+    data = request.get_json()
+
+    user_id = data["userId"]
+    quiz_id = data["quizId"]
+    score = data["score"]
+    total = data["total"]
+
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT *
+        FROM quiz_results
+        WHERE user_id = ?
+        AND quiz_id = ?
+    """, (
+        user_id,
+        quiz_id
+    ))
+
+    existing = cursor.fetchone()
+
+    if not existing:
+
+        cursor.execute("""
+            INSERT INTO quiz_results
+            (
+                user_id,
+                quiz_id,
+                score,
+                total_questions
+            )
+            VALUES (?, ?, ?, ?)
+        """, (
+            user_id,
+            quiz_id,
+            score,
+            total
+        ))
+
+    conn.commit()
+    conn.close()
+
+    return jsonify({
+        "success": True
+    })
+
+@app.route("/unlock_achievement", methods=["POST"])
+def unlock_achievement():
+
+    data = request.get_json()
+
+    user_id = data["userId"]
+    badge_name = data["badge"]
+
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT *
+        FROM achievements
+        WHERE user_id = ?
+        AND badge_name = ?
+    """, (
+        user_id,
+        badge_name
+    ))
+
+    existing = cursor.fetchone()
+
+    if not existing:
+
+        cursor.execute("""
+            INSERT INTO achievements
+            (
+                user_id,
+                badge_name
+            )
+            VALUES (?, ?)
+        """, (
+            user_id,
+            badge_name
+        ))
+
+        conn.commit()
+
+    conn.close()
+
+    return jsonify({
+        "success": True
+    })
+
+@app.route("/achievements/<int:user_id>")
+def get_achievements(user_id):
+
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT badge_name
+        FROM achievements
+        WHERE user_id = ?
+    """, (user_id,))
+
+    achievements = cursor.fetchall()
+
+    conn.close()
+
+    return jsonify([
+        achievement[0]
+        for achievement in achievements
+    ])
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -403,6 +403,14 @@ async function completeLesson() {
 
     if(data.success){
 
+        await addActivity(
+            `📚 Completed ${lessonName}`
+        );
+
+        await unlockAchievement(
+            "First Step"
+        );
+
         const currentBtn =
             document.querySelectorAll(
                 ".learn-topic-btn"
@@ -741,7 +749,7 @@ async function showResult() {
     if(user){
 
         await fetch(
-            "http://127.0.0.1:5000/add_xp",
+            "http://127.0.0.1:5000/save_quiz",
             {
                 method:"POST",
                 headers:{
@@ -750,7 +758,9 @@ async function showResult() {
                 },
                 body:JSON.stringify({
                     userId:user.id,
-                    xp:earnedXP
+                    quizId:currentQuiz,
+                    score:score,
+                    total:total
                 })
             }
         );
@@ -858,4 +868,139 @@ async function loadDashboardStatsDatabase(){
         "totalXPDisplay"
     ).innerText =
         data.xp;
+}
+
+async function addActivity(activity){
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "currentUser"
+            )
+        );
+
+    if(!user) return;
+
+    await fetch(
+        "http://127.0.0.1:5000/add_activity",
+        {
+            method:"POST",
+            headers:{
+                "Content-Type":
+                "application/json"
+            },
+            body:JSON.stringify({
+                userId:user.id,
+                activity:activity
+            })
+        }
+    );
+
+}
+
+async function loadRecentActivities(){
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "currentUser"
+            )
+        );
+
+    if(!user) return;
+
+    const response =
+        await fetch(
+            `http://127.0.0.1:5000/activities/${user.id}`
+        );
+
+    const data =
+        await response.json();
+
+    const list =
+        document.getElementById(
+            "recentActivityList"
+        );
+
+    if(!list) return;
+
+    list.innerHTML = "";
+
+    data.forEach(activity => {
+
+        list.innerHTML += `
+            <li>${activity}</li>
+        `;
+
+    });
+
+}
+
+async function unlockAchievement(badge){
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "currentUser"
+            )
+        );
+
+    if(!user) return;
+
+    await fetch(
+        "http://127.0.0.1:5000/unlock_achievement",
+        {
+            method:"POST",
+            headers:{
+                "Content-Type":
+                "application/json"
+            },
+            body:JSON.stringify({
+                userId:user.id,
+                badge:badge
+            })
+        }
+    );
+
+}
+
+async function loadAchievements(){
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "currentUser"
+            )
+        );
+
+    if(!user) return;
+
+    const response =
+        await fetch(
+            `http://127.0.0.1:5000/achievements/${user.id}`
+        );
+
+    const data =
+        await response.json();
+
+    const container =
+        document.getElementById(
+            "achievementsContainer"
+        );
+
+    if(!container) return;
+
+    container.innerHTML = "";
+
+    data.forEach(badge => {
+
+        container.innerHTML += `
+            <div class="achievement-item">
+                🏅
+                <p>${badge}</p>
+            </div>
+        `;
+
+    });
+
 }

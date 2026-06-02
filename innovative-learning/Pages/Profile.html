@@ -124,22 +124,16 @@
                 <div class="dashboard-grid">
 
                     <!-- ACTIVITY -->
-                    <div class="activity-box">
-                        <h3>Recent Activity</h3>
-                        <p>📘 Completed: Python Basics</p>
-                        <p>📝 Quiz: CSS Fundamentals (4/5 Correct)</p>
-                        <p>🏆 Earned: First Badge</p>
-                    </div>
+                        <div class="activity-box">
+                            <h3>Recent Activity</h3>
+                            <ul id="recentActivityList"></ul>
+                        </div>
 
                     <!-- ACHIEVEMENTS -->
                     <div class="achievement-box">
                         <h3>Achievements</h3>
 
-                        <div class="badges">
-                            <div class="badge">🥇<p>First Step</p></div>
-                            <div class="badge">⭐<p>Quiz Master</p></div>
-                            <div class="badge">🔥<p>Week Streak</p></div>
-                        </div>
+                        <div id="achievementsContainer"></div>
 
                         <div class="next-achievement">
                             <p>Next Achievement</p>
@@ -238,7 +232,9 @@
 
         loadProgress();
         loadDashboardStatsDatabase();
-
+        loadRecentActivities();
+        loadAchievements();
+        
     </script>
 
 
@@ -279,6 +275,10 @@
 
         </div>
     </div>
-
+    <script>
+    window.addEventListener("load", () => {
+        loadRecentActivities();
+    });
+    </script>
 </body>
 </html>

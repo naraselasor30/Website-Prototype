@@ -93,6 +93,26 @@ def initialize_database():
     )
     """)
 
+# =========================================
+# ACTIVITY LOGS TABLE
+# =========================================
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS activity_logs (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        activity TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+    """)
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS achievements (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        badge_name TEXT NOT NULL
+    )
+    """)
     # =========================================
     # DEFAULT LESSONS
     # =========================================
@@ -163,14 +183,19 @@ def initialize_database():
             ("JS", "JavaScript Mini Project", "JS/javascript_mini_project.json")
         ]
 
-        cursor.executemany("""
-        INSERT INTO lessons
-        (category, lesson_title, lesson_file)
-        VALUES (?, ?, ?)
-        """, lessons)
-
     conn.commit()
+
+    cursor.execute("""
+    SELECT name
+    FROM sqlite_master
+    WHERE type='table'
+    """)
+
+    print(cursor.fetchall())
+
     conn.close()
 
     print("Database initialized successfully!")
-
+    
+if __name__ == "__main__":
+    initialize_database()
