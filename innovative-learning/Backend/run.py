@@ -4,7 +4,7 @@
 
 # To run the backend server, execute this script in the terminal:
 
-# cd "..\Website-Prototype\innovative-learning\Backend"
+# cd "C:\Users\Aran\OneDrive\Documents\ARAN\GitHub\Website-Prototype\innovative-learning\Backend"
 # python run.py
 
 from database import initialize_database
